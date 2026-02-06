@@ -1,0 +1,708 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agora Impresiones — Publicidad & Merch</title>
+
+  <!-- ✅ Tailwind ONLINE (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tipografía -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --brand: #0205F3;
+      --brand2:#1B1EFF;
+      --brand3:#7A7CFF;
+      --ink:#070A1A;
+    }
+    html, body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+    .text-balance { text-wrap: balance; }
+    .noise {
+      background-image:
+        radial-gradient(circle at 20% 20%, rgba(2,5,243,.20), transparent 40%),
+        radial-gradient(circle at 80% 10%, rgba(27,30,255,.18), transparent 40%),
+        radial-gradient(circle at 60% 80%, rgba(122,124,255,.12), transparent 45%),
+        radial-gradient(circle at 10% 90%, rgba(2,5,243,.10), transparent 40%),
+        linear-gradient(180deg, rgba(255,255,255,.04), transparent 30%);
+    }
+    .blob { filter: blur(48px); opacity: .95; transform: translateZ(0); }
+    .ring-soft { box-shadow: 0 0 0 1px rgba(255,255,255,.08) inset; }
+  </style>
+</head>
+
+<body class="bg-[#050615] text-slate-100 overflow-x-hidden">
+
+  <!-- TOP STRIP -->
+  <div class="border-b border-white/10 bg-black/30 backdrop-blur">
+    <div class="mx-auto max-w-7xl px-3 sm:px-4 py-2 flex items-center justify-between text-[11px] sm:text-xs text-slate-300 gap-3">
+      <div class="flex items-center gap-2 min-w-0">
+        <span class="inline-flex h-2 w-2 rounded-full bg-emerald-400 shrink-0"></span>
+        <span class="truncate">Producción rápida • Diseños listos para imprimir • Entrega a coordinar</span>
+      </div>
+      <div class="hidden md:flex items-center gap-4 shrink-0">
+        <a href="#productos" class="hover:text-white">Productos</a>
+        <a href="#portafolio" class="hover:text-white">Portafolio</a>
+        <a href="#planes" class="hover:text-white">Planes</a>
+        <a href="#contacto" class="hover:text-white">Contacto</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-[#050615]/70 backdrop-blur">
+    <div class="mx-auto max-w-7xl px-3 sm:px-4 py-3 flex items-center justify-between gap-3">
+      <a href="#" class="flex items-center gap-3 min-w-0">
+        <img src="src/img/logo-agora.png" alt="Logo Agora" class="h-10 w-10 rounded-xl bg-white/5 p-1 ring-soft shrink-0" />
+        <div class="leading-tight min-w-0">
+          <div class="font-extrabold tracking-tight truncate">AGORA IMPRESIONES</div>
+          <div class="text-xs text-slate-300 truncate">Impresión • Merch • Publicidad</div>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="#servicios" class="text-slate-200 hover:text-white">Servicios</a>
+        <a href="#productos" class="text-slate-200 hover:text-white">Productos</a>
+        <a href="#portafolio" class="text-slate-200 hover:text-white">Portafolio</a>
+        <a href="#planes" class="text-slate-200 hover:text-white">Planes</a>
+      </nav>
+
+      <div class="flex items-center gap-2 shrink-0">
+        <a href="#contacto"
+           class="hidden sm:inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold transition shadow-[0_10px_30px_rgba(2,5,243,.35)]
+                  bg-[color:var(--brand)] hover:bg-[color:var(--brand2)]">
+          Cotizar ahora
+          <span aria-hidden="true">→</span>
+        </a>
+
+        <button id="btnMenu" class="md:hidden inline-flex items-center justify-center rounded-xl px-3 py-2 ring-soft hover:bg-white/5 transition" aria-label="Abrir menú">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="md:hidden hidden border-t border-white/10 bg-[#050615]/95">
+      <div class="mx-auto max-w-7xl px-3 sm:px-4 py-3 grid gap-2 text-sm">
+        <a href="#servicios" class="py-2 text-slate-200 hover:text-white">Servicios</a>
+        <a href="#productos" class="py-2 text-slate-200 hover:text-white">Productos</a>
+        <a href="#portafolio" class="py-2 text-slate-200 hover:text-white">Portafolio</a>
+        <a href="#planes" class="py-2 text-slate-200 hover:text-white">Planes</a>
+        <a href="#contacto" class="py-2 font-semibold text-white">Cotizar</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="relative overflow-hidden [overflow-x:clip]">
+    <div class="absolute inset-0 noise"></div>
+
+    <!-- blobs -->
+    <div class="absolute -top-24 -left-24 h-64 w-64 sm:h-72 sm:w-72 rounded-full blob bg-[color:var(--brand)]"></div>
+    <div class="absolute -top-28 right-0 h-72 w-72 sm:h-80 sm:w-80 rounded-full blob bg-[color:var(--brand2)]"></div>
+    <div class="absolute -bottom-28 left-1/3 h-72 w-72 sm:h-80 sm:w-80 rounded-full blob bg-[color:var(--brand3)]"></div>
+
+    <div class="relative mx-auto max-w-7xl px-3 sm:px-4 py-12 sm:py-14 md:py-20">
+      <div class="grid lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-7">
+          <div class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-[11px] sm:text-xs ring-soft bg-white/5">
+            <span class="h-2 w-2 rounded-full bg-[color:var(--brand2)]"></span>
+            <span class="text-slate-200">Impresión profesional para tu marca</span>
+          </div>
+
+          <h1 class="mt-5 text-[34px] leading-[1.0] sm:text-4xl md:text-6xl font-black tracking-tight text-balance">
+            CONVIERTE TU
+            <span class="text-white">PUBLICIDAD</span>
+            EN
+            <span class="text-[color:var(--brand2)]">VENTAS</span>
+          </h1>
+
+          <p class="mt-5 text-sm sm:text-base text-slate-200/90 max-w-xl">
+            Volantes, tarjetas personales, viniles, stickers, folders, tazas, cajas y publicidad en general.
+            Diseñamos, imprimimos y dejamos listo para entregar.
+          </p>
+
+          <div class="mt-7 flex flex-col sm:flex-row gap-3">
+            <a href="#contacto"
+               class="inline-flex items-center justify-center gap-2 rounded-2xl px-5 py-3 font-bold transition
+                      bg-[color:var(--brand)] hover:bg-[color:var(--brand2)]
+                      shadow-[0_14px_40px_rgba(2,5,243,.35)]">
+              Cotizar por WhatsApp
+              <span aria-hidden="true">→</span>
+            </a>
+
+            <a href="#productos"
+               class="inline-flex items-center justify-center gap-2 rounded-2xl px-5 py-3 font-semibold
+                      bg-white/5 hover:bg-white/10 ring-soft transition">
+              Ver catálogo
+              <span aria-hidden="true">↘</span>
+            </a>
+          </div>
+
+          <div class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs text-slate-200/90">
+            <div class="rounded-2xl px-4 py-3 ring-soft bg-white/5">
+              <div class="font-extrabold text-white">24–72h</div>
+              <div class="text-slate-300">según pedido</div>
+            </div>
+            <div class="rounded-2xl px-4 py-3 ring-soft bg-white/5">
+              <div class="font-extrabold text-white">Calidad</div>
+              <div class="text-slate-300">acabados pro</div>
+            </div>
+            <div class="rounded-2xl px-4 py-3 ring-soft bg-white/5">
+              <div class="font-extrabold text-white">Diseño</div>
+              <div class="text-slate-300">incluido opcional</div>
+            </div>
+            <div class="rounded-2xl px-4 py-3 ring-soft bg-white/5">
+              <div class="font-extrabold text-white">Entrega</div>
+              <div class="text-slate-300">a coordinar</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- visual column -->
+        <div class="lg:col-span-5">
+          <div class="relative">
+
+            <div class="rounded-3xl overflow-hidden ring-soft bg-white/5">
+              <!-- más responsive: altura variable según pantalla -->
+              <img src="src/img/1.jpg" alt="Muestra impresión" class="w-full h-[300px] sm:h-[420px] object-cover opacity-95"/>
+            </div>
+
+            <!-- floating card (responsive: en móvil pasa a “debajo” sin tapar) -->
+            <div class="mt-4 sm:mt-0 sm:absolute sm:-bottom-6 sm:-left-4 md:-left-10 w-full sm:w-[260px] rounded-3xl ring-soft bg-[#07081b]/80 backdrop-blur p-4">
+              <div class="flex items-center gap-3">
+                <div class="h-11 w-11 rounded-2xl bg-white/5 ring-soft flex items-center justify-center">
+                  <svg class="h-5 w-5 text-[color:var(--brand3)]" viewBox="0 0 24 24" fill="none">
+                    <path d="M4 7h16M4 12h10M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="font-extrabold leading-tight">Arma tu kit</div>
+                  <div class="text-xs text-slate-300">marca + promo + empaque</div>
+                </div>
+              </div>
+              <div class="mt-3 text-xs text-slate-300">
+                Tarjetas + Volantes + Stickers + Vinil (pack recomendado).
+              </div>
+            </div>
+
+            <!-- floating avatar (en móvil se vuelve bloque) -->
+            <div class="mt-3 sm:mt-0 sm:absolute sm:top-6 sm:-right-2 md:-right-8 w-full sm:w-[170px] rounded-3xl ring-soft bg-[#07081b]/80 backdrop-blur p-3">
+              <div class="text-xs text-slate-300">Respuesta rápida</div>
+              <div class="mt-2 flex items-center gap-2">
+                <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+                <span class="text-sm font-bold">En línea</span>
+              </div>
+              <div class="mt-2 text-[11px] text-slate-300">
+                Envía medidas, cantidad, acabado y te cotizamos.
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="border-y border-white/10 bg-black/30">
+    <div class="mx-auto max-w-7xl px-3 sm:px-4 py-3 flex gap-6 sm:gap-8 overflow-x-auto text-[11px] sm:text-xs text-slate-300">
+      <span class="whitespace-nowrap">VOLANTES</span>
+      <span class="whitespace-nowrap">TARJETAS PERSONALES</span>
+      <span class="whitespace-nowrap">MEMBRETES</span>
+      <span class="whitespace-nowrap">TRÍPTICOS</span>
+      <span class="whitespace-nowrap">STICKERS</span>
+      <span class="whitespace-nowrap">VINILES</span>
+      <span class="whitespace-nowrap">TAZAS</span>
+      <span class="whitespace-nowrap">CAJAS</span>
+      <span class="whitespace-nowrap">PUBLICIDAD EN GENERAL</span>
+    </div>
+  </div>
+
+  <!-- BLOQUE 2 -->
+  <section id="servicios" class="relative py-12 sm:py-14 md:py-20">
+    <div class="mx-auto max-w-7xl px-3 sm:px-4">
+      <div class="grid lg:grid-cols-12 gap-10 items-start">
+        <div class="lg:col-span-5">
+          <h2 class="text-3xl md:text-5xl font-black leading-[0.95]">
+            OBTÉN
+            <span class="text-[color:var(--brand2)]">IMPACTO</span>
+            AL
+            <span class="text-white">IMPRIMIR</span>
+          </h2>
+          <p class="mt-4 text-slate-300 text-sm sm:text-base">
+            Recomendaciones rápidas para que tu impresión venda:
+            buen contraste, jerarquía, tipografía clara y acabados correctos para cada uso.
+          </p>
+
+          <div class="mt-6 grid gap-3">
+            <div class="rounded-2xl p-4 ring-soft bg-white/5">
+              <div class="font-bold">Diseño listo para imprimir</div>
+              <div class="text-sm text-slate-300 mt-1">Formatos, sangrías, exportación PDF y revisión.</div>
+            </div>
+            <div class="rounded-2xl p-4 ring-soft bg-white/5">
+              <div class="font-bold">Materiales y acabados</div>
+              <div class="text-sm text-slate-300 mt-1">Mate, brillo, plastificado, troquel, UV, etc.</div>
+            </div>
+            <div class="rounded-2xl p-4 ring-soft bg-white/5">
+              <div class="font-bold">Producción y entrega</div>
+              <div class="text-sm text-slate-300 mt-1">Plazos claros y seguimiento por pedido.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7">
+          <div class="rounded-3xl overflow-hidden ring-soft bg-white/5">
+            <img src="src/img/2.jpg" alt="Servicios impresión" class="w-full h-[300px] sm:h-[420px] object-cover"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOQUE 3 -->
+  <section id="productos" class="relative py-12 sm:py-14 md:py-20">
+    <!-- degradado ok -->
+    <div class="absolute inset-0 bg-gradient-to-br from-[color:var(--brand)]/25 via-transparent to-[color:var(--brand2)]/20"></div>
+
+    <div class="relative mx-auto max-w-7xl px-3 sm:px-4">
+      <div class="grid lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-6">
+          <h2 class="text-4xl md:text-6xl font-black leading-[0.95]">
+            CONOCE
+            <span class="text-white">NUESTROS</span>
+            <span class="text-[color:var(--brand3)]">PRODUCTOS</span>
+          </h2>
+
+          <p class="mt-4 text-slate-200/90 max-w-xl text-sm sm:text-base">
+            Desde lo esencial (tarjetas/volantes) hasta merchandising (tazas/cajas).
+            Puedes pedir por unidad o por paquetes.
+          </p>
+
+          <div class="mt-7 grid sm:grid-cols-2 gap-3 text-sm">
+            <div class="rounded-2xl p-4 bg-white/5 ring-soft">
+              <div class="font-bold">Papelería</div>
+              <div class="text-slate-300 mt-1">Tarjetas • Membretado • Trípticos • Brochure</div>
+            </div>
+            <div class="rounded-2xl p-4 bg-white/5 ring-soft">
+              <div class="font-bold">Promocional</div>
+              <div class="text-slate-300 mt-1">Lapiceros • Hangtag • Almanaques • Agendas</div>
+            </div>
+            <div class="rounded-2xl p-4 bg-white/5 ring-soft">
+              <div class="font-bold">Adhesivos</div>
+              <div class="text-slate-300 mt-1">Stickers • Viniles • Etiquetas • Formatos</div>
+            </div>
+            <div class="rounded-2xl p-4 bg-white/5 ring-soft">
+              <div class="font-bold">Merch</div>
+              <div class="text-slate-300 mt-1">Tazas • Cajas • Folders • FotoChecks</div>
+            </div>
+          </div>
+
+          <div class="mt-7 flex flex-col sm:flex-row gap-3">
+            <a href="#planes"
+               class="inline-flex items-center justify-center rounded-2xl px-5 py-3 font-bold transition
+                      bg-[color:var(--brand)] hover:bg-[color:var(--brand2)]">
+              Ver planes
+            </a>
+            <a href="#portafolio"
+               class="inline-flex items-center justify-center rounded-2xl px-5 py-3 font-semibold
+                      bg-white/5 hover:bg-white/10 ring-soft transition">
+              Ver ejemplos
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6">
+          <div class="rounded-3xl ring-soft bg-[#07081b]/70 backdrop-blur overflow-hidden">
+            <div class="p-5 border-b border-white/10 flex items-center justify-between gap-3">
+              <div class="font-bold">Catálogo rápido</div>
+              <div class="text-xs text-slate-300">Tipos • cantidades • acabados</div>
+            </div>
+            <div class="p-5">
+              <img src="src/img/linktree.png" alt="Catálogo / Linktree" class="w-full rounded-2xl ring-soft bg-white/5"/>
+              <p class="mt-3 text-xs text-slate-300">
+                (Usa este bloque como “link-in-bio”, catálogo, QR o acceso a WhatsApp).
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTAFOLIO -->
+  <section id="portafolio" class="py-12 sm:py-14 md:py-20">
+    <div class="mx-auto max-w-7xl px-3 sm:px-4">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+        <div>
+          <h2 class="text-3xl md:text-5xl font-black">PORTAFOLIO</h2>
+          <p class="mt-2 text-slate-300 max-w-2xl text-sm sm:text-base">
+            Plantilla pensada para que reemplaces imágenes y copies esta estructura por categorías.
+          </p>
+        </div>
+
+        <!-- chips: ahora también visibles en móvil (scroll horizontal) -->
+        <div class="flex md:hidden gap-2 overflow-x-auto pb-1 -mx-1 px-1">
+          <button class="chip shrink-0 px-4 py-2 rounded-full ring-soft bg-white/5 text-sm hover:bg-white/10 transition" data-filter="all">Todo</button>
+          <button class="chip shrink-0 px-4 py-2 rounded-full ring-soft bg-white/5 text-sm hover:bg-white/10 transition" data-filter="papeleria">Papelería</button>
+          <button class="chip shrink-0 px-4 py-2 rounded-full ring-soft bg-white/5 text-sm hover:bg-white/10 transition" data-filter="adhesivos">Adhesivos</button>
+          <button class="chip shrink-0 px-4 py-2 rounded-full ring-soft bg-white/5 text-sm hover:bg-white/10 transition" data-filter="merch">Merch</button>
+        </div>
+
+        <div class="hidden md:flex gap-2">
+          <button class="chip px-4 py-2 rounded-full ring-soft bg-white/5 text-sm hover:bg-white/10 transition" data-filter="all">Todo</button>
+          <button class="chip px-4 py-2 rounded-full ring-soft bg-white/5 text-sm hover:bg-white/10 transition" data-filter="papeleria">Papelería</button>
+          <button class="chip px-4 py-2 rounded-full ring-soft bg-white/5 text-sm hover:bg-white/10 transition" data-filter="adhesivos">Adhesivos</button>
+          <button class="chip px-4 py-2 rounded-full ring-soft bg-white/5 text-sm hover:bg-white/10 transition" data-filter="merch">Merch</button>
+        </div>
+      </div>
+
+      <div class="mt-10 grid lg:grid-cols-12 gap-8">
+        <article class="lg:col-span-6 rounded-3xl overflow-hidden ring-soft bg-white/5 group item" data-cat="papeleria">
+          <img src="src/img/1.jpg" alt="Muestra A" class="h-56 sm:h-64 w-full object-cover group-hover:scale-[1.02] transition"/>
+          <div class="p-6">
+            <div class="text-xs text-slate-300">Papelería</div>
+            <h3 class="mt-2 text-xl font-extrabold">Tarjetas + Volantes</h3>
+            <p class="mt-2 text-sm text-slate-300">
+              Ideal para promociones y presentación profesional. Puedes añadir plastificado o UV.
+            </p>
+            <div class="mt-4 flex flex-wrap gap-2 text-xs">
+              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Mate</span>
+              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Brillo</span>
+              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">UV</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="lg:col-span-6 rounded-3xl overflow-hidden ring-soft bg-white/5 group item" data-cat="adhesivos">
+          <img src="src/img/2.jpg" alt="Muestra B" class="h-56 sm:h-64 w-full object-cover group-hover:scale-[1.02] transition"/>
+          <div class="p-6">
+            <div class="text-xs text-slate-300">Adhesivos</div>
+            <h3 class="mt-2 text-xl font-extrabold">Stickers + Viniles</h3>
+            <p class="mt-2 text-sm text-slate-300">
+              Etiquetas, branding, decoración y señalética. Resistentes según material.
+            </p>
+            <div class="mt-4 flex flex-wrap gap-2 text-xs">
+              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Corte</span>
+              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Troquel</span>
+              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Laminado</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="lg:col-span-4 rounded-3xl ring-soft bg-[#07081b]/70 backdrop-blur p-6 item" data-cat="merch">
+          <div class="text-xs text-slate-300">Merch</div>
+          <h3 class="mt-2 text-xl font-extrabold">Tazas & Regalos</h3>
+          <p class="mt-2 text-sm text-slate-300">
+            Perfecto para campañas, branding interno y fechas especiales.
+          </p>
+          <div class="mt-5">
+            <a href="#contacto" class="inline-flex items-center gap-2 text-sm font-bold text-[color:var(--brand3)] hover:text-white transition">
+              Pedir cotización <span>→</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="lg:col-span-4 rounded-3xl ring-soft bg-[#07081b]/70 backdrop-blur p-6 item" data-cat="papeleria">
+          <div class="text-xs text-slate-300">Corporativo</div>
+          <h3 class="mt-2 text-xl font-extrabold">Folders & Membretado</h3>
+          <p class="mt-2 text-sm text-slate-300">
+            Presentación pro para propuestas, contratos, documentos y kits.
+          </p>
+          <div class="mt-5">
+            <a href="#planes" class="inline-flex items-center gap-2 text-sm font-bold text-[color:var(--brand3)] hover:text-white transition">
+              Ver paquetes <span>→</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="lg:col-span-4 rounded-3xl ring-soft bg-[#07081b]/70 backdrop-blur p-6 item" data-cat="adhesivos">
+          <div class="text-xs text-slate-300">Formatos</div>
+          <h3 class="mt-2 text-xl font-extrabold">Brochure & Trípticos</h3>
+          <p class="mt-2 text-sm text-slate-300">
+            Para explicar tu servicio con claridad: secciones, precios, beneficios.
+          </p>
+          <div class="mt-5">
+            <a href="#contacto" class="inline-flex items-center gap-2 text-sm font-bold text-[color:var(--brand3)] hover:text-white transition">
+              Cotizar ahora <span>→</span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIO -->
+  <section class="py-12 sm:py-14 md:py-20 border-y border-white/10 bg-black/20">
+    <div class="mx-auto max-w-7xl px-3 sm:px-4">
+      <div class="grid lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-7">
+          <div class="text-xs text-slate-300">Testimonio</div>
+          <h2 class="mt-3 text-3xl md:text-5xl font-black leading-[0.95]">
+            “MEJORÓ LA
+            <span class="text-[color:var(--brand3)]">PRESENTACIÓN</span>
+            DE MI NEGOCIO Y
+            EMPECÉ A
+            <span class="text-white">VENDER MÁS</span>.”
+          </h2>
+          <p class="mt-4 text-slate-300 max-w-2xl text-sm sm:text-base">
+            Reemplaza este texto por tu caso real. Esta sección funciona perfecto para generar confianza
+            (calidad de impresión, tiempos, atención, etc.).
+          </p>
+          <div class="mt-6 flex items-center gap-3">
+            <div class="h-11 w-11 rounded-2xl bg-white/5 ring-soft"></div>
+            <div>
+              <div class="font-bold">Cliente / Marca</div>
+              <div class="text-xs text-slate-300">Rubro • Ciudad</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5">
+          <div class="rounded-3xl overflow-hidden ring-soft bg-white/5">
+            <img src="src/img/1.jpg" alt="Foto cliente" class="w-full h-[260px] sm:h-[360px] object-cover"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANES -->
+  <section id="planes" class="py-12 sm:py-14 md:py-20">
+    <div class="mx-auto max-w-7xl px-3 sm:px-4">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+        <div>
+          <h2 class="text-3xl md:text-5xl font-black">ELIGE UN PLAN</h2>
+          <p class="mt-2 text-slate-300 max-w-2xl text-sm sm:text-base">
+            Paquetes editables (pon tus precios reales y lo que incluye cada uno).
+          </p>
+        </div>
+        <div class="hidden md:flex items-center gap-2 text-xs text-slate-300">
+          <span class="h-2 w-2 rounded-full bg-[color:var(--brand2)]"></span>
+          <span>Descuentos por volumen</span>
+        </div>
+      </div>
+
+      <div class="mt-10 grid lg:grid-cols-12 gap-6">
+        <div class="lg:col-span-6 rounded-3xl ring-soft bg-white/5 p-6 relative overflow-hidden">
+          <div class="absolute -top-16 -right-16 h-48 w-48 rounded-full bg-white/5 blur-2xl"></div>
+
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <div class="text-xs text-slate-300">Plan básico</div>
+              <div class="mt-2 text-2xl font-extrabold">Kit Emprendedor</div>
+              <div class="mt-1 text-sm text-slate-300">Ideal para empezar a vender</div>
+            </div>
+            <div class="text-right">
+              <div class="text-xs text-slate-300">desde</div>
+              <div class="text-4xl font-black text-white">S/ 99</div>
+            </div>
+          </div>
+
+          <ul class="mt-6 grid gap-2 text-sm text-slate-200/90">
+            <li class="flex gap-2"><span class="text-[color:var(--brand3)]">✔</span> Tarjetas personales</li>
+            <li class="flex gap-2"><span class="text-[color:var(--brand3)]">✔</span> Volantes promocionales</li>
+            <li class="flex gap-2"><span class="text-[color:var(--brand3)]">✔</span> Stickers para empaque</li>
+            <li class="flex gap-2"><span class="text-[color:var(--brand3)]">✔</span> Revisión de archivo</li>
+          </ul>
+
+          <a href="#contacto"
+             class="mt-7 inline-flex w-full items-center justify-center rounded-2xl px-5 py-3 font-bold transition
+                    bg-[color:var(--brand)] hover:bg-[color:var(--brand2)]">
+            Quiero este plan
+          </a>
+          <div class="mt-2 text-xs text-slate-400">* Cambia “S/” por tu moneda si deseas.</div>
+        </div>
+
+        <div class="lg:col-span-6 rounded-3xl ring-soft bg-[#07081b]/70 backdrop-blur p-6 relative overflow-hidden">
+          <div class="absolute -bottom-20 -left-20 h-56 w-56 rounded-full bg-white/5 blur-2xl"></div>
+
+          <div class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs bg-white/5 ring-soft">
+            <span class="h-2 w-2 rounded-full bg-[color:var(--brand3)]"></span>
+            <span>Más vendido</span>
+          </div>
+
+          <div class="mt-4 flex items-start justify-between gap-4">
+            <div>
+              <div class="text-xs text-slate-300">Plan pro</div>
+              <div class="mt-2 text-2xl font-extrabold">Kit Marca Completa</div>
+              <div class="mt-1 text-sm text-slate-300">Para campañas y presencia fuerte</div>
+            </div>
+            <div class="text-right">
+              <div class="text-xs text-slate-300">desde</div>
+              <div class="text-4xl font-black text-white">S/ 199</div>
+            </div>
+          </div>
+
+          <ul class="mt-6 grid gap-2 text-sm text-slate-200/90">
+            <li class="flex gap-2"><span class="text-[color:var(--brand3)]">✔</span> Todo del Kit Emprendedor</li>
+            <li class="flex gap-2"><span class="text-[color:var(--brand3)]">✔</span> Vinil / etiquetas (según medida)</li>
+            <li class="flex gap-2"><span class="text-[color:var(--brand3)]">✔</span> Brochure o tríptico</li>
+            <li class="flex gap-2"><span class="text-[color:var(--brand3)]">✔</span> Ajustes de diseño (opcional)</li>
+          </ul>
+
+          <a href="#contacto"
+             class="mt-7 inline-flex w-full items-center justify-center rounded-2xl px-5 py-3 font-bold
+                    bg-white/5 hover:bg-white/10 ring-soft transition">
+            Cotizar este plan
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="py-12 sm:py-14 md:py-20 border-t border-white/10 bg-black/25">
+    <div class="mx-auto max-w-7xl px-3 sm:px-4">
+      <div class="grid lg:grid-cols-12 gap-10 items-start">
+        <div class="lg:col-span-6">
+          <h2 class="text-3xl md:text-5xl font-black leading-[0.95]">
+            ¿TIENES
+            <span class="text-[color:var(--brand3)]">PREGUNTAS</span>?
+            <span class="text-white">HABLEMOS</span>
+          </h2>
+          <p class="mt-4 text-slate-300 max-w-xl text-sm sm:text-base">
+            Déjame tu pedido (producto, cantidad, tamaño, acabado y fecha). Respondo rápido.
+          </p>
+
+          <form class="mt-8 grid gap-3" onsubmit="return handleSubmit(event)">
+            <div class="grid sm:grid-cols-2 gap-3">
+              <label class="grid gap-1 text-sm">
+                <span class="text-slate-300">Nombre</span>
+                <input class="rounded-2xl px-4 py-3 bg-white/5 ring-soft outline-none focus:ring-2 focus:ring-[color:var(--brand2)]"
+                       type="text" name="name" placeholder="Tu nombre" required />
+              </label>
+
+              <label class="grid gap-1 text-sm">
+                <span class="text-slate-300">WhatsApp</span>
+                <input class="rounded-2xl px-4 py-3 bg-white/5 ring-soft outline-none focus:ring-2 focus:ring-[color:var(--brand2)]"
+                       type="tel" name="phone" placeholder="+51 ..." required />
+              </label>
+            </div>
+
+            <label class="grid gap-1 text-sm">
+              <span class="text-slate-300">Producto</span>
+              <input class="rounded-2xl px-4 py-3 bg-white/5 ring-soft outline-none focus:ring-2 focus:ring-[color:var(--brand2)]"
+                     type="text" name="product" placeholder="Ej: 1000 volantes A5, 300g mate" />
+            </label>
+
+            <label class="grid gap-1 text-sm">
+              <span class="text-slate-300">Detalle</span>
+              <textarea class="min-h-[120px] rounded-2xl px-4 py-3 bg-white/5 ring-soft outline-none focus:ring-2 focus:ring-[color:var(--brand2)]"
+                        name="message"
+                        placeholder="Tamaño, cantidad, acabados, fecha, si ya tienes diseño o necesitas diseño..."></textarea>
+            </label>
+
+            <button class="mt-2 inline-flex items-center justify-center gap-2 rounded-2xl px-5 py-3 font-bold transition
+                           bg-[color:var(--brand)] hover:bg-[color:var(--brand2)]">
+              Enviar solicitud
+              <span aria-hidden="true">→</span>
+            </button>
+
+            <p id="formMsg" class="text-sm text-slate-300 hidden"></p>
+          </form>
+        </div>
+
+        <div class="lg:col-span-6">
+          <div class="rounded-3xl overflow-hidden ring-soft bg-white/5">
+            <img src="src/img/2.jpg" alt="Foto contacto" class="w-full h-[300px] sm:h-[520px] object-cover"/>
+          </div>
+
+          <div class="mt-4 grid sm:grid-cols-3 gap-3 text-xs text-slate-300">
+            <div class="rounded-2xl p-4 bg-white/5 ring-soft">
+              <div class="font-bold text-white">Formato</div>
+              <div class="mt-1">PDF/AI/PSD</div>
+            </div>
+            <div class="rounded-2xl p-4 bg-white/5 ring-soft">
+              <div class="font-bold text-white">Sangrado</div>
+              <div class="mt-1">3mm recomendado</div>
+            </div>
+            <div class="rounded-2xl p-4 bg-white/5 ring-soft">
+              <div class="font-bold text-white">Color</div>
+              <div class="mt-1">CMYK para impresión</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="mt-14 border-t border-white/10 pt-10">
+        <div class="grid md:grid-cols-12 gap-8 items-center">
+          <div class="md:col-span-7">
+            <div class="font-extrabold text-xl">MANTENTE AL DÍA</div>
+            <p class="mt-2 text-slate-300 text-sm max-w-xl">
+              Promos, packs y novedades de impresión. (También puede ser CTA a tu Linktree).
+            </p>
+          </div>
+          <div class="md:col-span-5">
+            <div class="flex flex-col sm:flex-row gap-2">
+              <input class="flex-1 rounded-2xl px-4 py-3 bg-white/5 ring-soft outline-none focus:ring-2 focus:ring-[color:var(--brand2)]"
+                     type="email" placeholder="Tu correo" />
+              <button class="rounded-2xl px-5 py-3 font-bold transition bg-[color:var(--brand)] hover:bg-[color:var(--brand2)]">
+                Suscribirme
+              </button>
+            </div>
+            <div class="mt-2 text-xs text-slate-400">* Puedes reemplazar esto por un botón a WhatsApp.</div>
+          </div>
+        </div>
+
+        <div class="mt-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs text-slate-400">
+          <div>© <span id="year"></span> Agora Impresiones. Todos los derechos reservados.</div>
+          <div class="flex flex-wrap gap-4">
+            <a class="hover:text-white" href="#servicios">Servicios</a>
+            <a class="hover:text-white" href="#productos">Productos</a>
+            <a class="hover:text-white" href="#planes">Planes</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    const btnMenu = document.getElementById('btnMenu');
+    const mobileMenu = document.getElementById('mobileMenu');
+    btnMenu?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+    // auto-close al hacer click en un link del menú móvil
+    document.querySelectorAll('#mobileMenu a').forEach(a => {
+      a.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const chips = document.querySelectorAll('.chip');
+    const items = document.querySelectorAll('.item');
+
+    chips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        chips.forEach(c => c.classList.remove('bg-white/10'));
+        chip.classList.add('bg-white/10');
+
+        const filter = chip.getAttribute('data-filter');
+        items.forEach(el => {
+          const cat = el.getAttribute('data-cat');
+          el.style.display = (filter === 'all' || cat === filter) ? '' : 'none';
+        });
+      });
+    });
+
+    function handleSubmit(e){
+      e.preventDefault();
+      const msg = document.getElementById('formMsg');
+      msg.classList.remove('hidden');
+      msg.textContent = "Listo. Aquí normalmente conectarías WhatsApp, correo o tu backend (Laravel).";
+      return false;
+    }
+  </script>
+
+</body>
+</html>
