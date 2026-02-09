@@ -22,6 +22,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="icon" href="src/img/logo-agora-icono.ico" type="image/x-icon" />
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap"
     rel="stylesheet"
@@ -86,12 +87,8 @@
 
     @keyframes floaty {
       0%,
-      100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-10px);
-      }
+      100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
 
     input,
@@ -105,48 +102,45 @@
       box-shadow: 0 0 0 3px rgba(27, 30, 255, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.12) inset;
     }
 
-   /* ✅ Slider infinito real (marquee) */
+    /* ✅ Slider infinito real (marquee) */
     .marquee {
-    position: relative;
-    overflow: hidden;
+      position: relative;
+      overflow: hidden;
     }
 
     .marquee__track {
-    display: flex;
-    width: max-content;
-    will-change: transform;
-    transform: translate3d(0,0,0);
-    animation: marquee var(--marquee-duration) linear infinite;
+      display: flex;
+      width: max-content;
+      will-change: transform;
+      transform: translate3d(0,0,0);
+      animation: marquee var(--marquee-duration) linear infinite;
     }
 
     .marquee__group {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    padding-right: 1.5rem;
-    white-space: nowrap;
-    flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding-right: 1.5rem;
+      white-space: nowrap;
+      flex: 0 0 auto;
     }
 
-    .marquee__group > span{
-    flex: 0 0 auto;
-    }
+    .marquee__group > span { flex: 0 0 auto; }
 
     /* pausa al hover (desktop) */
     .marquee:hover .marquee__track {
-    animation-play-state: paused;
+      animation-play-state: paused;
     }
 
     @keyframes marquee {
-    from { transform: translate3d(0,0,0); }
-    to   { transform: translate3d(-50%,0,0); }
+      from { transform: translate3d(0,0,0); }
+      to   { transform: translate3d(-50%,0,0); }
     }
 
     /* ✅ NO apagamos el marquee, solo quitamos floaty si el user lo pide */
     @media (prefers-reduced-motion: reduce) {
-    .floaty { animation: none; }
+      .floaty { animation: none; }
     }
-
   </style>
 </head>
 
@@ -161,8 +155,13 @@
   <header class="sticky top-0 z-50 border-b border-white/10 bg-[#050615]/80 backdrop-blur">
     <div class="mx-auto max-w-7xl px-4 py-4 flex items-center justify-between gap-4">
       <a href="#inicio" class="flex items-center gap-3 min-w-0">
-        <div class="h-10 w-10 rounded-xl bg-white/5 ring-soft flex items-center justify-center font-black text-lg shrink-0">
-          ÁC
+        <div class="h-10 w-10 rounded-xl bg-white/5 ring-soft flex items-center justify-center shrink-0 overflow-hidden">
+          <img
+            src="src/img/logo-agora-icono.png"
+            alt="Ágora Comunicadores"
+            class="h-full w-full object-contain p-1"
+            loading="eager"
+          />
         </div>
         <div class="min-w-0">
           <div class="font-extrabold leading-tight truncate">ÁGORA COMUNICADORES</div>
@@ -212,13 +211,13 @@
             </div>
 
             <h1 class="mt-6 text-4xl md:text-6xl font-black leading-[1.05] tracking-tight">
-              Haz que tu <span class="text-white">marca</span> se vea<br class="hidden sm:block" />
-              <span class="text-[color:var(--brand2)]">pro</span> y convierta en <span class="text-white">ventas</span>
+              Mejora la <span class="text-[color:var(--brand2)]">presencia visual</span><br class="hidden sm:block" />
+              de tu <span class="text-white">restaurante</span> y convierte en <span class="text-white">ventas</span>
             </h1>
 
             <p class="mt-5 text-slate-300 max-w-2xl text-base md:text-lg leading-relaxed">
-              Cartas, menús, viniles, stickers, empaques y material promocional para restaurantes. Diseñamos, imprimimos y
-              entregamos listo para usar.
+              Cartas, menús, viniles, stickers, empaques y material promocional para restaurantes.
+              Diseñamos, imprimimos y entregamos listo para usar, con una estética coherente y clara.
             </p>
 
             <div class="mt-8 flex flex-col sm:flex-row gap-3 sm:items-center">
@@ -273,7 +272,7 @@
               </div>
               <div class="rounded-2xl bg-white/5 ring-soft p-4">
                 <div class="font-extrabold text-white">Listo</div>
-                <div class="text-slate-300 mt-1">para restaurante</div>
+                <div class="text-slate-300 mt-1">para tu local</div>
               </div>
             </div>
           </div>
@@ -295,7 +294,7 @@
               class="absolute -bottom-6 -left-2 sm:-left-6 bg-[#07081b]/90 backdrop-blur rounded-2xl ring-soft p-4 w-[260px] floaty"
             >
               <div class="font-bold">Arma tu kit</div>
-              <div class="text-xs text-slate-300 mt-1">marca + promo + empaque</div>
+              <div class="text-xs text-slate-300 mt-1">marca + promoción + empaque</div>
               <div class="mt-2 text-xs text-slate-300">Menú + Stickers + Vinil + Volantes</div>
               <a
                 href="#packs"
@@ -407,15 +406,15 @@
               <span class="text-[color:var(--brand2)]">Te asesoramos</span>
             </h2>
             <p class="mt-4 text-slate-300 leading-relaxed">
-              Te decimos qué imprimir y cómo usarlo para mejorar ventas, imagen y ticket promedio. Materiales correctos,
-              diseño legible y producción pro.
+              Te decimos qué imprimir y cómo usarlo para mejorar ventas, imagen y ticket promedio.
+              Materiales correctos, diseño legible y un resultado final impecable.
             </p>
 
             <div class="mt-6 grid gap-3">
               <div class="rounded-2xl bg-white/5 ring-soft p-4">
-                <div class="font-extrabold text-white">Diseño orientado a venta</div>
+                <div class="font-extrabold text-white">Diseño pensado para vender</div>
                 <div class="text-sm text-slate-300 mt-1">
-                  Jerarquía visual, lectura rápida y llamados a acción claros.
+                  Jerarquía visual, lectura rápida y llamados a la acción claros.
                 </div>
               </div>
               <div class="rounded-2xl bg-white/5 ring-soft p-4">
@@ -425,7 +424,7 @@
                 </div>
               </div>
               <div class="rounded-2xl bg-white/5 ring-soft p-4">
-                <div class="font-extrabold text-white">Producción y acabados</div>
+                <div class="font-extrabold text-white">Acabados y detalles</div>
                 <div class="text-sm text-slate-300 mt-1">
                   Cortes, laminado, adhesivos y terminaciones limpias.
                 </div>
@@ -449,12 +448,12 @@
                 <div class="text-slate-300 mt-1 text-sm">Tipografía y contraste para lectura rápida.</div>
               </div>
               <div class="rounded-2xl bg-white/5 ring-soft p-4">
-                <div class="font-extrabold text-white">Consistencia</div>
+                <div class="font-extrabold text-white">Coherencia visual</div>
                 <div class="text-slate-300 mt-1 text-sm">Tu marca alineada en todo: menú, empaque y local.</div>
               </div>
               <div class="rounded-2xl bg-white/5 ring-soft p-4">
-                <div class="font-extrabold text-white">Conversión</div>
-                <div class="text-slate-300 mt-1 text-sm">Promos y señalética que guían la compra.</div>
+                <div class="font-extrabold text-white">Más pedidos</div>
+                <div class="text-slate-300 mt-1 text-sm">Promociones y señalética que guían la compra.</div>
               </div>
             </div>
           </div>
@@ -468,8 +467,8 @@
           <div>
             <h2 class="text-3xl md:text-4xl font-black">Productos que más piden</h2>
             <p class="mt-3 text-slate-300 max-w-2xl leading-relaxed">
-              Selecciones listas para restaurantes: desde menús y stickers hasta viniles y empaques. Pide uno o arma un
-              combo.
+              Selecciones listas para restaurantes: desde menús y stickers hasta viniles y empaques.
+              Pide uno o arma un combo con la misma línea visual.
             </p>
           </div>
           <a
@@ -513,7 +512,7 @@
             </div>
             <div class="mt-4 flex flex-wrap gap-2 text-xs text-slate-300">
               <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">QR</span>
-              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Promos</span>
+              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Promociones</span>
               <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Orientación</span>
             </div>
           </div>
@@ -521,7 +520,7 @@
           <div class="rounded-3xl bg-white/5 ring-soft p-5">
             <div class="text-sm font-extrabold text-white">Empaques y bolsas</div>
             <div class="mt-2 text-sm text-slate-300">
-              Cajas, bolsas, papel antigrasa y presentaciones pro.
+              Cajas, bolsas, papel antigrasa y presentaciones impecables.
             </div>
             <div class="mt-4 flex flex-wrap gap-2 text-xs text-slate-300">
               <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Delivery</span>
@@ -544,11 +543,11 @@
 
           <div class="rounded-3xl bg-white/5 ring-soft p-5">
             <div class="text-sm font-extrabold text-white">Papelería de marca</div>
-            <div class="mt-2 text-sm text-slate-300">Tarjetas, sellos, etiquetas QR y piezas de marca.</div>
+            <div class="mt-2 text-sm text-slate-300">Tarjetas, sellos, códigos QR y piezas para reforzar tu identidad.</div>
             <div class="mt-4 flex flex-wrap gap-2 text-xs text-slate-300">
               <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Marca</span>
               <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Confianza</span>
-              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Consistencia</span>
+              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Coherencia</span>
             </div>
           </div>
         </div>
@@ -572,13 +571,13 @@
               Ideal para empezar
             </div>
             <h3 class="mt-4 text-2xl font-extrabold">Kit Restaurante Inicial</h3>
-            <p class="text-slate-300 mt-2">Para verse profesional desde el día 1.</p>
+            <p class="text-slate-300 mt-2">Para verse más ordenado y atractivo desde el día 1.</p>
             <ul class="mt-5 space-y-2 text-sm text-slate-200/90">
               <li class="flex gap-2">
                 <span class="text-emerald-400">✔</span><span>Menú/carta impresa (opciones resistentes)</span>
               </li>
               <li class="flex gap-2">
-                <span class="text-emerald-400">✔</span><span>Volantes / promo para impulsar ventas</span>
+                <span class="text-emerald-400">✔</span><span>Volantes / promociones para impulsar ventas</span>
               </li>
               <li class="flex gap-2">
                 <span class="text-emerald-400">✔</span><span>Stickers para empaque y marca</span>
@@ -597,14 +596,14 @@
               Más recomendado
             </div>
             <h3 class="mt-4 text-2xl font-extrabold">Kit Restaurante Profesional</h3>
-            <p class="text-slate-300 mt-2">Para diferenciarte y vender más.</p>
+            <p class="text-slate-300 mt-2">Para diferenciarte y vender más con una imagen consistente.</p>
             <ul class="mt-5 space-y-2 text-sm text-slate-200/90">
               <li class="flex gap-2"><span class="text-emerald-400">✔</span><span>Todo el kit inicial</span></li>
               <li class="flex gap-2">
-                <span class="text-emerald-400">✔</span><span>Vinil / señalética (QR, promos, orientación)</span>
+                <span class="text-emerald-400">✔</span><span>Vinil / señalética (QR, promociones, orientación)</span>
               </li>
               <li class="flex gap-2">
-                <span class="text-emerald-400">✔</span><span>Optimización visual para lectura y conversión</span>
+                <span class="text-emerald-400">✔</span><span>Ajustes visuales para lectura y conversión</span>
               </li>
             </ul>
             <a
@@ -620,7 +619,7 @@
               Para expansión
             </div>
             <h3 class="mt-4 text-2xl font-extrabold">Kit Marca Completa</h3>
-            <p class="text-slate-300 mt-2">Para locales que quieren una identidad sólida.</p>
+            <p class="text-slate-300 mt-2">Para locales que quieren una identidad fuerte y uniforme.</p>
             <ul class="mt-5 space-y-2 text-sm text-slate-200/90">
               <li class="flex gap-2">
                 <span class="text-emerald-400">✔</span><span>Menú premium + versiones (salón/delivery)</span>
@@ -629,7 +628,7 @@
                 <span class="text-emerald-400">✔</span><span>Empaques + stickers + papel antigrasa</span>
               </li>
               <li class="flex gap-2">
-                <span class="text-emerald-400">✔</span><span>Señalética completa (QR, promos, vitrinas)</span>
+                <span class="text-emerald-400">✔</span><span>Señalética completa (QR, promociones, vitrinas)</span>
               </li>
             </ul>
             <a
@@ -785,11 +784,11 @@
             <div class="mt-4 grid sm:grid-cols-2 gap-3">
               <div class="rounded-3xl bg-white/5 ring-soft p-5">
                 <div class="text-sm font-extrabold">Calidad que se nota</div>
-                <div class="mt-2 text-sm text-slate-300">Cortes limpios, buenos materiales y acabados pro.</div>
+                <div class="mt-2 text-sm text-slate-300">Cortes limpios, buenos materiales y acabados impecables.</div>
               </div>
               <div class="rounded-3xl bg-white/5 ring-soft p-5">
-                <div class="text-sm font-extrabold">Marca consistente</div>
-                <div class="mt-2 text-sm text-slate-300">Todo tu material alineado: local, delivery y promos.</div>
+                <div class="text-sm font-extrabold">Imagen consistente</div>
+                <div class="mt-2 text-sm text-slate-300">Todo tu material alineado: local, delivery y promociones.</div>
               </div>
             </div>
           </div>
@@ -890,7 +889,7 @@
       el.setAttribute("href", url);
     };
 
-    ["ctaTop", "ctaHero", "ctaDirect"].forEach((id) => {
+    ["ctaTop", "ctaHero", "ctaDirect", "ctaProducts"].forEach((id) => {
       wireCTA(id, id.replace("cta", ""));
     });
 
