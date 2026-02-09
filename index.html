@@ -3,706 +3,907 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Agora Impresiones — Publicidad & Merch</title>
+  <title>Ágora Comunicadores — Impresión para Restaurantes</title>
 
-  <!-- ✅ Tailwind ONLINE (CDN) -->
+  <meta
+    name="description"
+    content="Cartas, menús, viniles, stickers, empaques y material promocional para restaurantes. Diseñamos, imprimimos y entregamos listo para usar. Cotiza por WhatsApp."
+  />
+
+  <meta property="og:title" content="Ágora Comunicadores — Impresión para Restaurantes" />
+  <meta
+    property="og:description"
+    content="Diseño + impresión premium para restaurantes: cartas, menús, viniles, stickers, empaques y material promocional. Cotiza por WhatsApp."
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_PE" />
+
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Tipografía -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["Inter", "system-ui", "Segoe UI", "Roboto", "Arial", "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
 
   <style>
-    :root{
-      --brand: #0205F3;
-      --brand2:#1B1EFF;
-      --brand3:#7A7CFF;
-      --ink:#070A1A;
+    :root {
+      --brand: #0205f3;
+      --brand2: #1b1eff;
+      --brand3: #7a7cff;
+      --bg: #050615;
+      --card: #0b0d24;
+
+      /* ✅ velocidad del slider infinito */
+      --marquee-duration: 55s;
     }
-    html, body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
-    .text-balance { text-wrap: balance; }
+
+    html,
+    body {
+      font-family: Inter, system-ui;
+      background: var(--bg);
+    }
+
+    .ring-soft {
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+    }
+
+    .ring-soft-2 {
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    }
+
     .noise {
-      background-image:
-        radial-gradient(circle at 20% 20%, rgba(2,5,243,.20), transparent 40%),
-        radial-gradient(circle at 80% 10%, rgba(27,30,255,.18), transparent 40%),
-        radial-gradient(circle at 60% 80%, rgba(122,124,255,.12), transparent 45%),
-        radial-gradient(circle at 10% 90%, rgba(2,5,243,.10), transparent 40%),
-        linear-gradient(180deg, rgba(255,255,255,.04), transparent 30%);
+      background: radial-gradient(1200px 600px at 15% 20%, rgba(27, 30, 255, 0.25), transparent 55%),
+        radial-gradient(900px 520px at 85% 10%, rgba(2, 5, 243, 0.22), transparent 60%),
+        radial-gradient(900px 700px at 60% 90%, rgba(122, 124, 255, 0.12), transparent 60%);
     }
-    .blob { filter: blur(48px); opacity: .95; transform: translateZ(0); }
-    .ring-soft { box-shadow: 0 0 0 1px rgba(255,255,255,.08) inset; }
+
+    .gridfx {
+      background-image: linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mask-image: radial-gradient(circle at 50% 35%, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+      opacity: 0.35;
+    }
+
+    .floaty {
+      animation: floaty 10s ease-in-out infinite;
+      will-change: transform;
+    }
+
+    @keyframes floaty {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    input,
+    textarea {
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    input:focus,
+    textarea:focus {
+      box-shadow: 0 0 0 3px rgba(27, 30, 255, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.12) inset;
+    }
+
+   /* ✅ Slider infinito real (marquee) */
+    .marquee {
+    position: relative;
+    overflow: hidden;
+    }
+
+    .marquee__track {
+    display: flex;
+    width: max-content;
+    will-change: transform;
+    transform: translate3d(0,0,0);
+    animation: marquee var(--marquee-duration) linear infinite;
+    }
+
+    .marquee__group {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding-right: 1.5rem;
+    white-space: nowrap;
+    flex: 0 0 auto;
+    }
+
+    .marquee__group > span{
+    flex: 0 0 auto;
+    }
+
+    /* pausa al hover (desktop) */
+    .marquee:hover .marquee__track {
+    animation-play-state: paused;
+    }
+
+    @keyframes marquee {
+    from { transform: translate3d(0,0,0); }
+    to   { transform: translate3d(-50%,0,0); }
+    }
+
+    /* ✅ NO apagamos el marquee, solo quitamos floaty si el user lo pide */
+    @media (prefers-reduced-motion: reduce) {
+    .floaty { animation: none; }
+    }
+
   </style>
 </head>
 
-<body class="bg-[#050615] text-slate-100 overflow-x-hidden">
-
-  <!-- TOP STRIP -->
-  <div class="border-b border-white/10 bg-black/30 backdrop-blur">
-    <div class="mx-auto max-w-7xl px-3 sm:px-4 py-2 flex items-center justify-between text-[11px] sm:text-xs text-slate-300 gap-3">
-      <div class="flex items-center gap-2 min-w-0">
-        <span class="inline-flex h-2 w-2 rounded-full bg-emerald-400 shrink-0"></span>
-        <span class="truncate">Producción rápida • Diseños listos para imprimir • Entrega a coordinar</span>
-      </div>
-      <div class="hidden md:flex items-center gap-4 shrink-0">
-        <a href="#productos" class="hover:text-white">Productos</a>
-        <a href="#portafolio" class="hover:text-white">Portafolio</a>
-        <a href="#planes" class="hover:text-white">Planes</a>
-        <a href="#contacto" class="hover:text-white">Contacto</a>
-      </div>
+<body class="text-slate-100 overflow-x-hidden">
+  <div class="border-b border-white/10 bg-black/30">
+    <div class="mx-auto max-w-7xl px-4 py-2 text-xs flex items-center justify-between gap-3">
+      <span class="text-slate-200/90">Especialistas en impresión para restaurantes • Lima</span>
+      <span class="hidden md:inline text-slate-200/80">Atención rápida por WhatsApp</span>
     </div>
   </div>
 
-  <!-- HEADER -->
-  <header class="sticky top-0 z-50 border-b border-white/10 bg-[#050615]/70 backdrop-blur">
-    <div class="mx-auto max-w-7xl px-3 sm:px-4 py-3 flex items-center justify-between gap-3">
-      <a href="#" class="flex items-center gap-3 min-w-0">
-        <img src="src/img/logo-agora.png" alt="Logo Agora" class="h-10 w-10 rounded-xl bg-white/5 p-1 ring-soft shrink-0" />
-        <div class="leading-tight min-w-0">
-          <div class="font-extrabold tracking-tight truncate">AGORA IMPRESIONES</div>
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-[#050615]/80 backdrop-blur">
+    <div class="mx-auto max-w-7xl px-4 py-4 flex items-center justify-between gap-4">
+      <a href="#inicio" class="flex items-center gap-3 min-w-0">
+        <div class="h-10 w-10 rounded-xl bg-white/5 ring-soft flex items-center justify-center font-black text-lg shrink-0">
+          ÁC
+        </div>
+        <div class="min-w-0">
+          <div class="font-extrabold leading-tight truncate">ÁGORA COMUNICADORES</div>
           <div class="text-xs text-slate-300 truncate">Impresión • Merch • Publicidad</div>
         </div>
       </a>
 
-      <nav class="hidden md:flex items-center gap-6 text-sm">
-        <a href="#servicios" class="text-slate-200 hover:text-white">Servicios</a>
-        <a href="#productos" class="text-slate-200 hover:text-white">Productos</a>
-        <a href="#portafolio" class="text-slate-200 hover:text-white">Portafolio</a>
-        <a href="#planes" class="text-slate-200 hover:text-white">Planes</a>
+      <nav class="hidden lg:flex items-center gap-6 text-sm text-slate-200/90">
+        <a href="#servicios" class="hover:text-white transition">Servicios</a>
+        <a href="#productos" class="hover:text-white transition">Productos</a>
+        <a href="#packs" class="hover:text-white transition">Packs</a>
+        <a href="#proceso" class="hover:text-white transition">Proceso</a>
+        <a href="#faq" class="hover:text-white transition">FAQ</a>
       </nav>
 
-      <div class="flex items-center gap-2 shrink-0">
-        <a href="#contacto"
-           class="hidden sm:inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold transition shadow-[0_10px_30px_rgba(2,5,243,.35)]
-                  bg-[color:var(--brand)] hover:bg-[color:var(--brand2)]">
-          Cotizar ahora
-          <span aria-hidden="true">→</span>
+      <div class="flex items-center gap-2">
+        <a
+          href="#packs"
+          class="hidden sm:inline-flex px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 ring-soft font-semibold text-sm transition"
+        >
+          Ver packs
         </a>
-
-        <button id="btnMenu" class="md:hidden inline-flex items-center justify-center rounded-xl px-3 py-2 ring-soft hover:bg-white/5 transition" aria-label="Abrir menú">
-          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none">
-            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </button>
-      </div>
-    </div>
-
-    <!-- Mobile menu -->
-    <div id="mobileMenu" class="md:hidden hidden border-t border-white/10 bg-[#050615]/95">
-      <div class="mx-auto max-w-7xl px-3 sm:px-4 py-3 grid gap-2 text-sm">
-        <a href="#servicios" class="py-2 text-slate-200 hover:text-white">Servicios</a>
-        <a href="#productos" class="py-2 text-slate-200 hover:text-white">Productos</a>
-        <a href="#portafolio" class="py-2 text-slate-200 hover:text-white">Portafolio</a>
-        <a href="#planes" class="py-2 text-slate-200 hover:text-white">Planes</a>
-        <a href="#contacto" class="py-2 font-semibold text-white">Cotizar</a>
+        <a
+          id="ctaTop"
+          href="https://wa.me/51999999999"
+          target="_blank"
+          rel="noopener"
+          class="inline-flex items-center justify-center px-5 py-2 rounded-xl font-bold text-sm bg-[color:var(--brand)] hover:bg-[color:var(--brand2)] transition shadow-lg shadow-[color:var(--brand)]/20"
+        >
+          Cotizar por WhatsApp
+        </a>
       </div>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="relative overflow-hidden [overflow-x:clip]">
-    <div class="absolute inset-0 noise"></div>
+  <main id="inicio">
+    <section class="relative overflow-hidden">
+      <div class="absolute inset-0 noise"></div>
+      <div class="absolute inset-0 gridfx pointer-events-none"></div>
 
-    <!-- blobs -->
-    <div class="absolute -top-24 -left-24 h-64 w-64 sm:h-72 sm:w-72 rounded-full blob bg-[color:var(--brand)]"></div>
-    <div class="absolute -top-28 right-0 h-72 w-72 sm:h-80 sm:w-80 rounded-full blob bg-[color:var(--brand2)]"></div>
-    <div class="absolute -bottom-28 left-1/3 h-72 w-72 sm:h-80 sm:w-80 rounded-full blob bg-[color:var(--brand3)]"></div>
+      <div class="relative mx-auto max-w-7xl px-4 pt-12 pb-14 md:pt-16 md:pb-18 lg:pt-20 lg:pb-20">
+        <div class="grid lg:grid-cols-12 gap-10 items-center">
+          <div class="lg:col-span-7">
+            <div class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs bg-white/5 ring-soft">
+              <span class="h-2 w-2 rounded-full bg-[color:var(--brand2)]"></span>
+              Diseño + impresión premium, listo para usar
+            </div>
 
-    <div class="relative mx-auto max-w-7xl px-3 sm:px-4 py-12 sm:py-14 md:py-20">
-      <div class="grid lg:grid-cols-12 gap-10 items-center">
-        <div class="lg:col-span-7">
-          <div class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-[11px] sm:text-xs ring-soft bg-white/5">
-            <span class="h-2 w-2 rounded-full bg-[color:var(--brand2)]"></span>
-            <span class="text-slate-200">Impresión profesional para tu marca</span>
+            <h1 class="mt-6 text-4xl md:text-6xl font-black leading-[1.05] tracking-tight">
+              Haz que tu <span class="text-white">marca</span> se vea<br class="hidden sm:block" />
+              <span class="text-[color:var(--brand2)]">pro</span> y convierta en <span class="text-white">ventas</span>
+            </h1>
+
+            <p class="mt-5 text-slate-300 max-w-2xl text-base md:text-lg leading-relaxed">
+              Cartas, menús, viniles, stickers, empaques y material promocional para restaurantes. Diseñamos, imprimimos y
+              entregamos listo para usar.
+            </p>
+
+            <div class="mt-8 flex flex-col sm:flex-row gap-3 sm:items-center">
+              <a
+                id="ctaHero"
+                href="https://wa.me/51999999999"
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center justify-center px-6 py-3 rounded-2xl font-bold bg-[color:var(--brand)] hover:bg-[color:var(--brand2)] transition shadow-xl shadow-[color:var(--brand)]/20"
+              >
+                Cotizar por WhatsApp →
+              </a>
+              <a
+                href="#productos"
+                class="inline-flex items-center justify-center px-6 py-3 rounded-2xl bg-white/5 hover:bg-white/10 ring-soft font-semibold transition"
+              >
+                Ver productos ↘
+              </a>
+            </div>
+
+            <div class="mt-6 flex flex-wrap gap-2 text-xs text-slate-300">
+              <span class="inline-flex items-center gap-2 rounded-full px-3 py-1 bg-white/5 ring-soft">
+                <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                Respuesta rápida
+              </span>
+              <span class="inline-flex items-center gap-2 rounded-full px-3 py-1 bg-white/5 ring-soft">
+                <span class="h-1.5 w-1.5 rounded-full bg-sky-400"></span>
+                Entrega a coordinar
+              </span>
+              <span class="inline-flex items-center gap-2 rounded-full px-3 py-1 bg-white/5 ring-soft">
+                <span class="h-1.5 w-1.5 rounded-full bg-violet-400"></span>
+                Acabados premium
+              </span>
+              <span class="inline-flex items-center gap-2 rounded-full px-3 py-1 bg-white/5 ring-soft">
+                <span class="h-1.5 w-1.5 rounded-full bg-amber-300"></span>
+                Diseños listos para imprimir
+              </span>
+            </div>
+
+            <div class="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+              <div class="rounded-2xl bg-white/5 ring-soft p-4">
+                <div class="font-extrabold text-white">24–72h</div>
+                <div class="text-slate-300 mt-1">según pedido</div>
+              </div>
+              <div class="rounded-2xl bg-white/5 ring-soft p-4">
+                <div class="font-extrabold text-white">Asesoría</div>
+                <div class="text-slate-300 mt-1">para vender más</div>
+              </div>
+              <div class="rounded-2xl bg-white/5 ring-soft p-4">
+                <div class="font-extrabold text-white">Materiales</div>
+                <div class="text-slate-300 mt-1">según uso real</div>
+              </div>
+              <div class="rounded-2xl bg-white/5 ring-soft p-4">
+                <div class="font-extrabold text-white">Listo</div>
+                <div class="text-slate-300 mt-1">para restaurante</div>
+              </div>
+            </div>
           </div>
 
-          <h1 class="mt-5 text-[34px] leading-[1.0] sm:text-4xl md:text-6xl font-black tracking-tight text-balance">
-            CONVIERTE TU
-            <span class="text-white">PUBLICIDAD</span>
-            EN
-            <span class="text-[color:var(--brand2)]">VENTAS</span>
-          </h1>
+          <div class="lg:col-span-5 relative">
+            <div class="absolute -top-10 -right-10 h-44 w-44 rounded-full bg-[color:var(--brand2)]/25 blur-3xl"></div>
+            <div class="absolute -bottom-10 -left-10 h-44 w-44 rounded-full bg-[color:var(--brand)]/20 blur-3xl"></div>
 
-          <p class="mt-5 text-sm sm:text-base text-slate-200/90 max-w-xl">
-            Volantes, tarjetas personales, viniles, stickers, folders, tazas, cajas y publicidad en general.
-            Diseñamos, imprimimos y dejamos listo para entregar.
-          </p>
-
-          <div class="mt-7 flex flex-col sm:flex-row gap-3">
-            <a href="#contacto"
-               class="inline-flex items-center justify-center gap-2 rounded-2xl px-5 py-3 font-bold transition
-                      bg-[color:var(--brand)] hover:bg-[color:var(--brand2)]
-                      shadow-[0_14px_40px_rgba(2,5,243,.35)]">
-              Cotizar por WhatsApp
-              <span aria-hidden="true">→</span>
-            </a>
-
-            <a href="#productos"
-               class="inline-flex items-center justify-center gap-2 rounded-2xl px-5 py-3 font-semibold
-                      bg-white/5 hover:bg-white/10 ring-soft transition">
-              Ver catálogo
-              <span aria-hidden="true">↘</span>
-            </a>
-          </div>
-
-          <div class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs text-slate-200/90">
-            <div class="rounded-2xl px-4 py-3 ring-soft bg-white/5">
-              <div class="font-extrabold text-white">24–72h</div>
-              <div class="text-slate-300">según pedido</div>
+            <div class="rounded-3xl overflow-hidden bg-white/5 ring-soft-2">
+              <img
+                src="src/img/1.jpg"
+                alt="Impresión para restaurantes"
+                class="w-full h-[420px] object-cover"
+                loading="eager"
+              />
             </div>
-            <div class="rounded-2xl px-4 py-3 ring-soft bg-white/5">
-              <div class="font-extrabold text-white">Calidad</div>
-              <div class="text-slate-300">acabados pro</div>
+
+            <div
+              class="absolute -bottom-6 -left-2 sm:-left-6 bg-[#07081b]/90 backdrop-blur rounded-2xl ring-soft p-4 w-[260px] floaty"
+            >
+              <div class="font-bold">Arma tu kit</div>
+              <div class="text-xs text-slate-300 mt-1">marca + promo + empaque</div>
+              <div class="mt-2 text-xs text-slate-300">Menú + Stickers + Vinil + Volantes</div>
+              <a
+                href="#packs"
+                class="mt-3 inline-flex items-center gap-2 text-xs font-bold text-white hover:text-white/90"
+              >
+                Ver packs <span aria-hidden="true">→</span>
+              </a>
             </div>
-            <div class="rounded-2xl px-4 py-3 ring-soft bg-white/5">
-              <div class="font-extrabold text-white">Diseño</div>
-              <div class="text-slate-300">incluido opcional</div>
-            </div>
-            <div class="rounded-2xl px-4 py-3 ring-soft bg-white/5">
-              <div class="font-extrabold text-white">Entrega</div>
-              <div class="text-slate-300">a coordinar</div>
+
+            <div class="absolute top-6 -right-2 sm:-right-4 bg-[#07081b]/90 backdrop-blur rounded-2xl ring-soft p-3 w-[190px]">
+              <div class="text-xs text-slate-300">WhatsApp</div>
+              <div class="mt-1 flex items-center gap-2">
+                <span class="h-2 w-2 bg-emerald-400 rounded-full"></span>
+                <span class="font-bold text-sm">En línea</span>
+              </div>
+              <div class="mt-1 text-[11px] text-slate-300">Envíanos medidas y cantidad</div>
             </div>
           </div>
         </div>
 
-        <!-- visual column -->
-        <div class="lg:col-span-5">
-          <div class="relative">
+        <div class="mt-12 rounded-3xl bg-white/5 ring-soft p-4 sm:p-5">
+          <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+            <div class="min-w-0">
+              <div class="text-sm font-extrabold text-white">Cotiza en 2 minutos</div>
+              <div class="text-xs text-slate-300 mt-1">
+                Envía: producto + medidas + cantidad + fecha. Te respondemos con opciones y precios.
+              </div>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-3">
+              <a
+                href="#contacto"
+                class="inline-flex items-center justify-center px-5 py-3 rounded-2xl font-semibold bg-white/10 hover:bg-white/15 ring-soft transition"
+              >
+                Dejar datos ↘
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            <div class="rounded-3xl overflow-hidden ring-soft bg-white/5">
-              <!-- más responsive: altura variable según pantalla -->
-              <img src="src/img/1.jpg" alt="Muestra impresión" class="w-full h-[300px] sm:h-[420px] object-cover opacity-95"/>
+    <!-- ✅ SLIDER INFINITO (SECCIÓN NEGRA) -->
+    <section class="border-y border-white/10 bg-black/40" aria-label="Productos destacados">
+      <div class="marquee py-4 text-xs sm:text-sm font-semibold text-slate-300">
+        <div class="marquee__track">
+          <!-- Grupo 1 -->
+          <div class="marquee__group">
+            <span>Cartas / menús impresos</span>
+            <span>Menús plastificados</span>
+            <span>Menús tipo tríptico</span>
+            <span>Volantes promocionales</span>
+            <span>Flyers de ofertas</span>
+            <span>Afiches</span>
+            <span>Banners roll up</span>
+            <span>Stickers con logo</span>
+            <span>Stickers para envases</span>
+            <span>Etiquetas adhesivas</span>
+            <span>Manteles de papel personalizados</span>
+            <span>Portavasos impresos</span>
+            <span>Servilletas personalizadas</span>
+            <span>Bolsas de papel personalizadas</span>
+            <span>Cajas para delivery</span>
+            <span>Cajas para pizza</span>
+            <span>Cajas para hamburguesas</span>
+            <span>Papel antigrasa impreso</span>
+            <span>Vasos descartables impresos</span>
+            <span>Señalética interna</span>
+            <span>Carteles QR</span>
+            <span>Displays de mesa</span>
+            <span>Viniles para vitrinas</span>
+          </div>
+
+          <!-- Grupo 2 (copia exacta, para loop perfecto) -->
+          <div class="marquee__group" aria-hidden="true">
+            <span>Cartas / menús impresos</span>
+            <span>Menús plastificados</span>
+            <span>Menús tipo tríptico</span>
+            <span>Volantes promocionales</span>
+            <span>Flyers de ofertas</span>
+            <span>Afiches</span>
+            <span>Banners roll up</span>
+            <span>Stickers con logo</span>
+            <span>Stickers para envases</span>
+            <span>Etiquetas adhesivas</span>
+            <span>Manteles de papel personalizados</span>
+            <span>Portavasos impresos</span>
+            <span>Servilletas personalizadas</span>
+            <span>Bolsas de papel personalizadas</span>
+            <span>Cajas para delivery</span>
+            <span>Cajas para pizza</span>
+            <span>Cajas para hamburguesas</span>
+            <span>Papel antigrasa impreso</span>
+            <span>Vasos descartables impresos</span>
+            <span>Señalética interna</span>
+            <span>Carteles QR</span>
+            <span>Displays de mesa</span>
+            <span>Viniles para vitrinas</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicios" class="py-16 md:py-20">
+      <div class="mx-auto max-w-7xl px-4">
+        <div class="grid lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+          <div class="lg:col-span-5">
+            <h2 class="text-3xl md:text-4xl font-black leading-tight">
+              No solo imprimimos.<br />
+              <span class="text-[color:var(--brand2)]">Te asesoramos</span>
+            </h2>
+            <p class="mt-4 text-slate-300 leading-relaxed">
+              Te decimos qué imprimir y cómo usarlo para mejorar ventas, imagen y ticket promedio. Materiales correctos,
+              diseño legible y producción pro.
+            </p>
+
+            <div class="mt-6 grid gap-3">
+              <div class="rounded-2xl bg-white/5 ring-soft p-4">
+                <div class="font-extrabold text-white">Diseño orientado a venta</div>
+                <div class="text-sm text-slate-300 mt-1">
+                  Jerarquía visual, lectura rápida y llamados a acción claros.
+                </div>
+              </div>
+              <div class="rounded-2xl bg-white/5 ring-soft p-4">
+                <div class="font-extrabold text-white">Materiales según uso real</div>
+                <div class="text-sm text-slate-300 mt-1">
+                  Delivery, salón, vitrinas, exterior o alta manipulación.
+                </div>
+              </div>
+              <div class="rounded-2xl bg-white/5 ring-soft p-4">
+                <div class="font-extrabold text-white">Producción y acabados</div>
+                <div class="text-sm text-slate-300 mt-1">
+                  Cortes, laminado, adhesivos y terminaciones limpias.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7">
+            <div class="rounded-3xl overflow-hidden bg-white/5 ring-soft-2">
+              <img
+                src="src/img/2.jpg"
+                alt="Material promocional para restaurantes"
+                class="w-full h-[420px] object-cover"
+                loading="lazy"
+              />
             </div>
 
-            <!-- floating card (responsive: en móvil pasa a “debajo” sin tapar) -->
-            <div class="mt-4 sm:mt-0 sm:absolute sm:-bottom-6 sm:-left-4 md:-left-10 w-full sm:w-[260px] rounded-3xl ring-soft bg-[#07081b]/80 backdrop-blur p-4">
-              <div class="flex items-center gap-3">
-                <div class="h-11 w-11 rounded-2xl bg-white/5 ring-soft flex items-center justify-center">
-                  <svg class="h-5 w-5 text-[color:var(--brand3)]" viewBox="0 0 24 24" fill="none">
-                    <path d="M4 7h16M4 12h10M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                  </svg>
+            <div class="mt-4 grid sm:grid-cols-3 gap-3 text-sm">
+              <div class="rounded-2xl bg-white/5 ring-soft p-4">
+                <div class="font-extrabold text-white">Legibilidad</div>
+                <div class="text-slate-300 mt-1 text-sm">Tipografía y contraste para lectura rápida.</div>
+              </div>
+              <div class="rounded-2xl bg-white/5 ring-soft p-4">
+                <div class="font-extrabold text-white">Consistencia</div>
+                <div class="text-slate-300 mt-1 text-sm">Tu marca alineada en todo: menú, empaque y local.</div>
+              </div>
+              <div class="rounded-2xl bg-white/5 ring-soft p-4">
+                <div class="font-extrabold text-white">Conversión</div>
+                <div class="text-slate-300 mt-1 text-sm">Promos y señalética que guían la compra.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="productos" class="py-16 md:py-20 bg-black/25 border-y border-white/10">
+      <div class="mx-auto max-w-7xl px-4">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+          <div>
+            <h2 class="text-3xl md:text-4xl font-black">Productos que más piden</h2>
+            <p class="mt-3 text-slate-300 max-w-2xl leading-relaxed">
+              Selecciones listas para restaurantes: desde menús y stickers hasta viniles y empaques. Pide uno o arma un
+              combo.
+            </p>
+          </div>
+          <a
+            id="ctaProducts"
+            href="https://wa.me/51999999999"
+            target="_blank"
+            rel="noopener"
+            class="inline-flex items-center justify-center px-5 py-3 rounded-2xl font-bold bg-white/10 hover:bg-white/15 ring-soft transition"
+          >
+            Consultar disponibilidad →
+          </a>
+        </div>
+
+        <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div class="rounded-3xl bg-white/5 ring-soft p-5">
+            <div class="text-sm font-extrabold text-white">Cartas y menús</div>
+            <div class="mt-2 text-sm text-slate-300">
+              Plastificado, tríptico, encuadernado y opciones premium.
+            </div>
+            <div class="mt-4 flex flex-wrap gap-2 text-xs text-slate-300">
+              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Salón</span>
+              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Delivery</span>
+              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Resistente</span>
+            </div>
+          </div>
+
+          <div class="rounded-3xl bg-white/5 ring-soft p-5">
+            <div class="text-sm font-extrabold text-white">Stickers y etiquetas</div>
+            <div class="mt-2 text-sm text-slate-300">Para envases, bolsas, vasos y sellado de delivery.</div>
+            <div class="mt-4 flex flex-wrap gap-2 text-xs text-slate-300">
+              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Kraft</span>
+              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Vinil</span>
+              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Transparente</span>
+            </div>
+          </div>
+
+          <div class="rounded-3xl bg-white/5 ring-soft p-5">
+            <div class="text-sm font-extrabold text-white">Viniles y señalética</div>
+            <div class="mt-2 text-sm text-slate-300">
+              Vitrinas, paredes, cajas de luz, QR y señalética interna.
+            </div>
+            <div class="mt-4 flex flex-wrap gap-2 text-xs text-slate-300">
+              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">QR</span>
+              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Promos</span>
+              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Orientación</span>
+            </div>
+          </div>
+
+          <div class="rounded-3xl bg-white/5 ring-soft p-5">
+            <div class="text-sm font-extrabold text-white">Empaques y bolsas</div>
+            <div class="mt-2 text-sm text-slate-300">
+              Cajas, bolsas, papel antigrasa y presentaciones pro.
+            </div>
+            <div class="mt-4 flex flex-wrap gap-2 text-xs text-slate-300">
+              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Delivery</span>
+              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Marca</span>
+              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Calidad</span>
+            </div>
+          </div>
+
+          <div class="rounded-3xl bg-white/5 ring-soft p-5">
+            <div class="text-sm font-extrabold text-white">Promocionales</div>
+            <div class="mt-2 text-sm text-slate-300">
+              Volantes, flyers, displays de mesa, afiches y banners.
+            </div>
+            <div class="mt-4 flex flex-wrap gap-2 text-xs text-slate-300">
+              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Ofertas</span>
+              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Eventos</span>
+              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Impulso</span>
+            </div>
+          </div>
+
+          <div class="rounded-3xl bg-white/5 ring-soft p-5">
+            <div class="text-sm font-extrabold text-white">Papelería de marca</div>
+            <div class="mt-2 text-sm text-slate-300">Tarjetas, sellos, etiquetas QR y piezas de marca.</div>
+            <div class="mt-4 flex flex-wrap gap-2 text-xs text-slate-300">
+              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Marca</span>
+              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Confianza</span>
+              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Consistencia</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="packs" class="py-16 md:py-20">
+      <div class="mx-auto max-w-7xl px-4">
+        <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4">
+          <div>
+            <h2 class="text-3xl md:text-4xl font-black">Packs para restaurantes</h2>
+            <p class="mt-3 text-slate-300 max-w-2xl leading-relaxed">
+              Ahorra tiempo y arma tu kit según tu etapa. Cotiza y ajustamos cantidades, materiales y acabados.
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-10 grid lg:grid-cols-3 gap-4">
+          <div class="rounded-3xl bg-white/5 ring-soft p-6">
+            <div class="inline-flex items-center gap-2 text-xs font-semibold rounded-full px-3 py-1 bg-white/5 ring-soft text-slate-200/90">
+              Ideal para empezar
+            </div>
+            <h3 class="mt-4 text-2xl font-extrabold">Kit Restaurante Inicial</h3>
+            <p class="text-slate-300 mt-2">Para verse profesional desde el día 1.</p>
+            <ul class="mt-5 space-y-2 text-sm text-slate-200/90">
+              <li class="flex gap-2">
+                <span class="text-emerald-400">✔</span><span>Menú/carta impresa (opciones resistentes)</span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-emerald-400">✔</span><span>Volantes / promo para impulsar ventas</span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-emerald-400">✔</span><span>Stickers para empaque y marca</span>
+              </li>
+            </ul>
+            <a
+              class="mt-6 inline-flex w-full items-center justify-center px-5 py-3 rounded-2xl font-bold bg-white/10 hover:bg-white/15 ring-soft transition"
+              href="#contacto"
+            >
+              Cotizar este pack →
+            </a>
+          </div>
+
+          <div class="rounded-3xl bg-gradient-to-b from-white/10 to-white/5 ring-soft-2 p-6 border border-[color:var(--brand3)]/50">
+            <div class="inline-flex items-center gap-2 text-xs font-semibold rounded-full px-3 py-1 bg-[color:var(--brand2)]/15 ring-soft text-white">
+              Más recomendado
+            </div>
+            <h3 class="mt-4 text-2xl font-extrabold">Kit Restaurante Profesional</h3>
+            <p class="text-slate-300 mt-2">Para diferenciarte y vender más.</p>
+            <ul class="mt-5 space-y-2 text-sm text-slate-200/90">
+              <li class="flex gap-2"><span class="text-emerald-400">✔</span><span>Todo el kit inicial</span></li>
+              <li class="flex gap-2">
+                <span class="text-emerald-400">✔</span><span>Vinil / señalética (QR, promos, orientación)</span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-emerald-400">✔</span><span>Optimización visual para lectura y conversión</span>
+              </li>
+            </ul>
+            <a
+              class="mt-6 inline-flex w-full items-center justify-center px-5 py-3 rounded-2xl font-bold bg-[color:var(--brand)] hover:bg-[color:var(--brand2)] transition shadow-lg shadow-[color:var(--brand)]/20"
+              href="#contacto"
+            >
+              Quiero este pack →
+            </a>
+          </div>
+
+          <div class="rounded-3xl bg-white/5 ring-soft p-6">
+            <div class="inline-flex items-center gap-2 text-xs font-semibold rounded-full px-3 py-1 bg-white/5 ring-soft text-slate-200/90">
+              Para expansión
+            </div>
+            <h3 class="mt-4 text-2xl font-extrabold">Kit Marca Completa</h3>
+            <p class="text-slate-300 mt-2">Para locales que quieren una identidad sólida.</p>
+            <ul class="mt-5 space-y-2 text-sm text-slate-200/90">
+              <li class="flex gap-2">
+                <span class="text-emerald-400">✔</span><span>Menú premium + versiones (salón/delivery)</span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-emerald-400">✔</span><span>Empaques + stickers + papel antigrasa</span>
+              </li>
+              <li class="flex gap-2">
+                <span class="text-emerald-400">✔</span><span>Señalética completa (QR, promos, vitrinas)</span>
+              </li>
+            </ul>
+            <a
+              class="mt-6 inline-flex w-full items-center justify-center px-5 py-3 rounded-2xl font-bold bg-white/10 hover:bg-white/15 ring-soft transition"
+              href="#contacto"
+            >
+              Cotizar kit completo →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="proceso" class="py-16 md:py-20 bg-black/25 border-y border-white/10">
+      <div class="mx-auto max-w-7xl px-4">
+        <h2 class="text-3xl md:text-4xl font-black">Proceso simple</h2>
+        <p class="mt-3 text-slate-300 max-w-2xl leading-relaxed">
+          Cero vueltas. Te guiamos para decidir, producir y entregar con calidad.
+        </p>
+
+        <div class="mt-10 grid md:grid-cols-4 gap-4">
+          <div class="rounded-3xl bg-white/5 ring-soft p-5">
+            <div class="h-10 w-10 rounded-2xl bg-[color:var(--brand)]/15 ring-soft flex items-center justify-center font-black">
+              1
+            </div>
+            <div class="mt-4 font-extrabold">Escribes por WhatsApp</div>
+            <div class="mt-2 text-sm text-slate-300">Producto, medidas, cantidad y fecha.</div>
+          </div>
+          <div class="rounded-3xl bg-white/5 ring-soft p-5">
+            <div class="h-10 w-10 rounded-2xl bg-[color:var(--brand2)]/15 ring-soft flex items-center justify-center font-black">
+              2
+            </div>
+            <div class="mt-4 font-extrabold">Te asesoramos</div>
+            <div class="mt-2 text-sm text-slate-300">Materiales, acabados y formato ideal.</div>
+          </div>
+          <div class="rounded-3xl bg-white/5 ring-soft p-5">
+            <div class="h-10 w-10 rounded-2xl bg-[color:var(--brand3)]/15 ring-soft flex items-center justify-center font-black">
+              3
+            </div>
+            <div class="mt-4 font-extrabold">Diseño y producción</div>
+            <div class="mt-2 text-sm text-slate-300">Aprobación y luego imprimimos.</div>
+          </div>
+          <div class="rounded-3xl bg-white/5 ring-soft p-5">
+            <div class="h-10 w-10 rounded-2xl bg-emerald-400/10 ring-soft flex items-center justify-center font-black">
+              4
+            </div>
+            <div class="mt-4 font-extrabold">Entrega</div>
+            <div class="mt-2 text-sm text-slate-300">Listo para usar en tu restaurante.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="py-16 md:py-20">
+      <div class="mx-auto max-w-7xl px-4">
+        <div class="grid lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+          <div class="lg:col-span-6">
+            <h2 class="text-3xl md:text-4xl font-black leading-tight">
+              Cuéntanos sobre <span class="text-[color:var(--brand2)]">tu restaurante</span>
+            </h2>
+            <p class="mt-4 text-slate-300 leading-relaxed max-w-xl">
+              Te asesoramos antes de cotizar para que inviertas bien. Puedes dejar datos aquí o escribir directo por
+              WhatsApp.
+            </p>
+
+            <div class="mt-8 rounded-3xl bg-white/5 ring-soft p-5">
+              <form id="leadForm" class="grid gap-3">
+                <div class="grid sm:grid-cols-2 gap-3">
+                  <input
+                    id="name"
+                    class="bg-white/5 ring-soft rounded-2xl px-4 py-3 w-full"
+                    placeholder="Nombre"
+                    autocomplete="name"
+                  />
+                  <input
+                    id="phone"
+                    class="bg-white/5 ring-soft rounded-2xl px-4 py-3 w-full"
+                    placeholder="WhatsApp"
+                    inputmode="tel"
+                    autocomplete="tel"
+                  />
                 </div>
+
+                <div class="grid sm:grid-cols-2 gap-3">
+                  <select id="product" class="bg-white/5 ring-soft rounded-2xl px-4 py-3 w-full text-slate-200">
+                    <option value="" selected>¿Qué necesitas?</option>
+                    <option>Cartas / Menús</option>
+                    <option>Stickers / Etiquetas</option>
+                    <option>Viniles / Señalética</option>
+                    <option>Empaques / Bolsas</option>
+                    <option>Promocionales</option>
+                    <option>Otro</option>
+                  </select>
+                  <input
+                    id="qty"
+                    class="bg-white/5 ring-soft rounded-2xl px-4 py-3 w-full"
+                    placeholder="Cantidad / medidas"
+                    autocomplete="off"
+                  />
+                </div>
+
+                <textarea
+                  id="details"
+                  class="bg-white/5 ring-soft rounded-2xl px-4 py-3 min-h-[120px] w-full"
+                  placeholder="Cuéntanos: tipo de restaurante, qué quieres mejorar y para cuándo lo necesitas"
+                ></textarea>
+
+                <button
+                  type="submit"
+                  class="bg-[color:var(--brand)] hover:bg-[color:var(--brand2)] py-3 rounded-2xl font-bold transition shadow-lg shadow-[color:var(--brand)]/20"
+                >
+                  Enviar por WhatsApp →
+                </button>
+
+                <div class="text-xs text-slate-400 leading-relaxed">
+                  Al enviar, se abrirá WhatsApp con tu mensaje listo. No guardamos tus datos.
+                </div>
+              </form>
+            </div>
+
+            <div class="mt-6 grid sm:grid-cols-2 gap-3 text-sm">
+              <a
+                id="ctaDirect"
+                href="https://wa.me/51999999999"
+                target="_blank"
+                rel="noopener"
+                class="rounded-3xl bg-white/5 ring-soft p-5 hover:bg-white/7 transition flex items-start justify-between gap-4"
+              >
                 <div>
-                  <div class="font-extrabold leading-tight">Arma tu kit</div>
-                  <div class="text-xs text-slate-300">marca + promo + empaque</div>
+                  <div class="font-extrabold">Escribir directo</div>
+                  <div class="text-slate-300 mt-1 text-sm">Respuesta rápida por WhatsApp.</div>
                 </div>
+                <span class="text-slate-200 font-black">→</span>
+              </a>
+
+              <div class="rounded-3xl bg-white/5 ring-soft p-5">
+                <div class="font-extrabold">Para cotizar, envía</div>
+                <div class="mt-2 text-sm text-slate-300">Producto • Medidas • Cantidad • Fecha</div>
               </div>
-              <div class="mt-3 text-xs text-slate-300">
-                Tarjetas + Volantes + Stickers + Vinil (pack recomendado).
-              </div>
-            </div>
-
-            <!-- floating avatar (en móvil se vuelve bloque) -->
-            <div class="mt-3 sm:mt-0 sm:absolute sm:top-6 sm:-right-2 md:-right-8 w-full sm:w-[170px] rounded-3xl ring-soft bg-[#07081b]/80 backdrop-blur p-3">
-              <div class="text-xs text-slate-300">Respuesta rápida</div>
-              <div class="mt-2 flex items-center gap-2">
-                <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
-                <span class="text-sm font-bold">En línea</span>
-              </div>
-              <div class="mt-2 text-[11px] text-slate-300">
-                Envía medidas, cantidad, acabado y te cotizamos.
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- TICKER -->
-  <div class="border-y border-white/10 bg-black/30">
-    <div class="mx-auto max-w-7xl px-3 sm:px-4 py-3 flex gap-6 sm:gap-8 overflow-x-auto text-[11px] sm:text-xs text-slate-300">
-      <span class="whitespace-nowrap">VOLANTES</span>
-      <span class="whitespace-nowrap">TARJETAS PERSONALES</span>
-      <span class="whitespace-nowrap">MEMBRETES</span>
-      <span class="whitespace-nowrap">TRÍPTICOS</span>
-      <span class="whitespace-nowrap">STICKERS</span>
-      <span class="whitespace-nowrap">VINILES</span>
-      <span class="whitespace-nowrap">TAZAS</span>
-      <span class="whitespace-nowrap">CAJAS</span>
-      <span class="whitespace-nowrap">PUBLICIDAD EN GENERAL</span>
-    </div>
-  </div>
-
-  <!-- BLOQUE 2 -->
-  <section id="servicios" class="relative py-12 sm:py-14 md:py-20">
-    <div class="mx-auto max-w-7xl px-3 sm:px-4">
-      <div class="grid lg:grid-cols-12 gap-10 items-start">
-        <div class="lg:col-span-5">
-          <h2 class="text-3xl md:text-5xl font-black leading-[0.95]">
-            OBTÉN
-            <span class="text-[color:var(--brand2)]">IMPACTO</span>
-            AL
-            <span class="text-white">IMPRIMIR</span>
-          </h2>
-          <p class="mt-4 text-slate-300 text-sm sm:text-base">
-            Recomendaciones rápidas para que tu impresión venda:
-            buen contraste, jerarquía, tipografía clara y acabados correctos para cada uso.
-          </p>
-
-          <div class="mt-6 grid gap-3">
-            <div class="rounded-2xl p-4 ring-soft bg-white/5">
-              <div class="font-bold">Diseño listo para imprimir</div>
-              <div class="text-sm text-slate-300 mt-1">Formatos, sangrías, exportación PDF y revisión.</div>
-            </div>
-            <div class="rounded-2xl p-4 ring-soft bg-white/5">
-              <div class="font-bold">Materiales y acabados</div>
-              <div class="text-sm text-slate-300 mt-1">Mate, brillo, plastificado, troquel, UV, etc.</div>
-            </div>
-            <div class="rounded-2xl p-4 ring-soft bg-white/5">
-              <div class="font-bold">Producción y entrega</div>
-              <div class="text-sm text-slate-300 mt-1">Plazos claros y seguimiento por pedido.</div>
             </div>
           </div>
-        </div>
 
-        <div class="lg:col-span-7">
-          <div class="rounded-3xl overflow-hidden ring-soft bg-white/5">
-            <img src="src/img/2.jpg" alt="Servicios impresión" class="w-full h-[300px] sm:h-[420px] object-cover"/>
+          <div class="lg:col-span-6">
+            <div class="rounded-3xl overflow-hidden bg-white/5 ring-soft-2">
+              <img
+                src="src/img/2.jpg"
+                alt="Impresión lista para usar en restaurantes"
+                class="w-full h-[460px] object-cover"
+                loading="lazy"
+              />
+            </div>
+
+            <div class="mt-4 grid sm:grid-cols-2 gap-3">
+              <div class="rounded-3xl bg-white/5 ring-soft p-5">
+                <div class="text-sm font-extrabold">Calidad que se nota</div>
+                <div class="mt-2 text-sm text-slate-300">Cortes limpios, buenos materiales y acabados pro.</div>
+              </div>
+              <div class="rounded-3xl bg-white/5 ring-soft p-5">
+                <div class="text-sm font-extrabold">Marca consistente</div>
+                <div class="mt-2 text-sm text-slate-300">Todo tu material alineado: local, delivery y promos.</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- BLOQUE 3 -->
-  <section id="productos" class="relative py-12 sm:py-14 md:py-20">
-    <!-- degradado ok -->
-    <div class="absolute inset-0 bg-gradient-to-br from-[color:var(--brand)]/25 via-transparent to-[color:var(--brand2)]/20"></div>
+    <section id="faq" class="py-16 md:py-20 bg-black/25 border-y border-white/10">
+      <div class="mx-auto max-w-7xl px-4">
+        <h2 class="text-3xl md:text-4xl font-black">Preguntas frecuentes</h2>
 
-    <div class="relative mx-auto max-w-7xl px-3 sm:px-4">
-      <div class="grid lg:grid-cols-12 gap-10 items-center">
-        <div class="lg:col-span-6">
-          <h2 class="text-4xl md:text-6xl font-black leading-[0.95]">
-            CONOCE
-            <span class="text-white">NUESTROS</span>
-            <span class="text-[color:var(--brand3)]">PRODUCTOS</span>
-          </h2>
-
-          <p class="mt-4 text-slate-200/90 max-w-xl text-sm sm:text-base">
-            Desde lo esencial (tarjetas/volantes) hasta merchandising (tazas/cajas).
-            Puedes pedir por unidad o por paquetes.
-          </p>
-
-          <div class="mt-7 grid sm:grid-cols-2 gap-3 text-sm">
-            <div class="rounded-2xl p-4 bg-white/5 ring-soft">
-              <div class="font-bold">Papelería</div>
-              <div class="text-slate-300 mt-1">Tarjetas • Membretado • Trípticos • Brochure</div>
+        <div class="mt-10 grid lg:grid-cols-2 gap-4">
+          <details class="rounded-3xl bg-white/5 ring-soft p-5">
+            <summary class="cursor-pointer font-extrabold text-white">¿Qué necesito para cotizar?</summary>
+            <div class="mt-3 text-sm text-slate-300 leading-relaxed">
+              Producto, medidas, cantidad y para cuándo lo necesitas. Si tienes diseño, lo revisamos; si no, te apoyamos.
             </div>
-            <div class="rounded-2xl p-4 bg-white/5 ring-soft">
-              <div class="font-bold">Promocional</div>
-              <div class="text-slate-300 mt-1">Lapiceros • Hangtag • Almanaques • Agendas</div>
-            </div>
-            <div class="rounded-2xl p-4 bg-white/5 ring-soft">
-              <div class="font-bold">Adhesivos</div>
-              <div class="text-slate-300 mt-1">Stickers • Viniles • Etiquetas • Formatos</div>
-            </div>
-            <div class="rounded-2xl p-4 bg-white/5 ring-soft">
-              <div class="font-bold">Merch</div>
-              <div class="text-slate-300 mt-1">Tazas • Cajas • Folders • FotoChecks</div>
-            </div>
-          </div>
+          </details>
 
-          <div class="mt-7 flex flex-col sm:flex-row gap-3">
-            <a href="#planes"
-               class="inline-flex items-center justify-center rounded-2xl px-5 py-3 font-bold transition
-                      bg-[color:var(--brand)] hover:bg-[color:var(--brand2)]">
-              Ver planes
-            </a>
-            <a href="#portafolio"
-               class="inline-flex items-center justify-center rounded-2xl px-5 py-3 font-semibold
-                      bg-white/5 hover:bg-white/10 ring-soft transition">
-              Ver ejemplos
-            </a>
-          </div>
+          <details class="rounded-3xl bg-white/5 ring-soft p-5">
+            <summary class="cursor-pointer font-extrabold text-white">¿Hacen diseño?</summary>
+            <div class="mt-3 text-sm text-slate-300 leading-relaxed">
+              Sí. Podemos adaptar tu marca o crear piezas listas para imprimir con jerarquía clara y buena legibilidad.
+            </div>
+          </details>
+
+          <details class="rounded-3xl bg-white/5 ring-soft p-5">
+            <summary class="cursor-pointer font-extrabold text-white">¿Cuánto demora?</summary>
+            <div class="mt-3 text-sm text-slate-300 leading-relaxed">
+              Depende del producto y la cantidad. Normalmente entre 24–72h luego de la aprobación.
+            </div>
+          </details>
+
+          <details class="rounded-3xl bg-white/5 ring-soft p-5">
+            <summary class="cursor-pointer font-extrabold text-white">¿Entregan a domicilio?</summary>
+            <div class="mt-3 text-sm text-slate-300 leading-relaxed">Sí, a coordinar según zona y tipo de pedido.</div>
+          </details>
         </div>
-
-        <div class="lg:col-span-6">
-          <div class="rounded-3xl ring-soft bg-[#07081b]/70 backdrop-blur overflow-hidden">
-            <div class="p-5 border-b border-white/10 flex items-center justify-between gap-3">
-              <div class="font-bold">Catálogo rápido</div>
-              <div class="text-xs text-slate-300">Tipos • cantidades • acabados</div>
-            </div>
-            <div class="p-5">
-              <img src="src/img/linktree.png" alt="Catálogo / Linktree" class="w-full rounded-2xl ring-soft bg-white/5"/>
-              <p class="mt-3 text-xs text-slate-300">
-                (Usa este bloque como “link-in-bio”, catálogo, QR o acceso a WhatsApp).
-              </p>
-            </div>
-          </div>
-        </div>
-
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- PORTAFOLIO -->
-  <section id="portafolio" class="py-12 sm:py-14 md:py-20">
-    <div class="mx-auto max-w-7xl px-3 sm:px-4">
-      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+  <footer class="py-10">
+    <div class="mx-auto max-w-7xl px-4">
+      <div class="rounded-3xl bg-white/5 ring-soft p-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
         <div>
-          <h2 class="text-3xl md:text-5xl font-black">PORTAFOLIO</h2>
-          <p class="mt-2 text-slate-300 max-w-2xl text-sm sm:text-base">
-            Plantilla pensada para que reemplaces imágenes y copies esta estructura por categorías.
-          </p>
+          <div class="font-extrabold">Ágora Comunicadores</div>
+          <div class="text-xs text-slate-400 mt-1">Especialistas en impresión para restaurantes • Lima</div>
         </div>
-
-        <!-- chips: ahora también visibles en móvil (scroll horizontal) -->
-        <div class="flex md:hidden gap-2 overflow-x-auto pb-1 -mx-1 px-1">
-          <button class="chip shrink-0 px-4 py-2 rounded-full ring-soft bg-white/5 text-sm hover:bg-white/10 transition" data-filter="all">Todo</button>
-          <button class="chip shrink-0 px-4 py-2 rounded-full ring-soft bg-white/5 text-sm hover:bg-white/10 transition" data-filter="papeleria">Papelería</button>
-          <button class="chip shrink-0 px-4 py-2 rounded-full ring-soft bg-white/5 text-sm hover:bg-white/10 transition" data-filter="adhesivos">Adhesivos</button>
-          <button class="chip shrink-0 px-4 py-2 rounded-full ring-soft bg-white/5 text-sm hover:bg-white/10 transition" data-filter="merch">Merch</button>
-        </div>
-
-        <div class="hidden md:flex gap-2">
-          <button class="chip px-4 py-2 rounded-full ring-soft bg-white/5 text-sm hover:bg-white/10 transition" data-filter="all">Todo</button>
-          <button class="chip px-4 py-2 rounded-full ring-soft bg-white/5 text-sm hover:bg-white/10 transition" data-filter="papeleria">Papelería</button>
-          <button class="chip px-4 py-2 rounded-full ring-soft bg-white/5 text-sm hover:bg-white/10 transition" data-filter="adhesivos">Adhesivos</button>
-          <button class="chip px-4 py-2 rounded-full ring-soft bg-white/5 text-sm hover:bg-white/10 transition" data-filter="merch">Merch</button>
-        </div>
-      </div>
-
-      <div class="mt-10 grid lg:grid-cols-12 gap-8">
-        <article class="lg:col-span-6 rounded-3xl overflow-hidden ring-soft bg-white/5 group item" data-cat="papeleria">
-          <img src="src/img/1.jpg" alt="Muestra A" class="h-56 sm:h-64 w-full object-cover group-hover:scale-[1.02] transition"/>
-          <div class="p-6">
-            <div class="text-xs text-slate-300">Papelería</div>
-            <h3 class="mt-2 text-xl font-extrabold">Tarjetas + Volantes</h3>
-            <p class="mt-2 text-sm text-slate-300">
-              Ideal para promociones y presentación profesional. Puedes añadir plastificado o UV.
-            </p>
-            <div class="mt-4 flex flex-wrap gap-2 text-xs">
-              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Mate</span>
-              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Brillo</span>
-              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">UV</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="lg:col-span-6 rounded-3xl overflow-hidden ring-soft bg-white/5 group item" data-cat="adhesivos">
-          <img src="src/img/2.jpg" alt="Muestra B" class="h-56 sm:h-64 w-full object-cover group-hover:scale-[1.02] transition"/>
-          <div class="p-6">
-            <div class="text-xs text-slate-300">Adhesivos</div>
-            <h3 class="mt-2 text-xl font-extrabold">Stickers + Viniles</h3>
-            <p class="mt-2 text-sm text-slate-300">
-              Etiquetas, branding, decoración y señalética. Resistentes según material.
-            </p>
-            <div class="mt-4 flex flex-wrap gap-2 text-xs">
-              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Corte</span>
-              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Troquel</span>
-              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Laminado</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="lg:col-span-4 rounded-3xl ring-soft bg-[#07081b]/70 backdrop-blur p-6 item" data-cat="merch">
-          <div class="text-xs text-slate-300">Merch</div>
-          <h3 class="mt-2 text-xl font-extrabold">Tazas & Regalos</h3>
-          <p class="mt-2 text-sm text-slate-300">
-            Perfecto para campañas, branding interno y fechas especiales.
-          </p>
-          <div class="mt-5">
-            <a href="#contacto" class="inline-flex items-center gap-2 text-sm font-bold text-[color:var(--brand3)] hover:text-white transition">
-              Pedir cotización <span>→</span>
-            </a>
-          </div>
-        </article>
-
-        <article class="lg:col-span-4 rounded-3xl ring-soft bg-[#07081b]/70 backdrop-blur p-6 item" data-cat="papeleria">
-          <div class="text-xs text-slate-300">Corporativo</div>
-          <h3 class="mt-2 text-xl font-extrabold">Folders & Membretado</h3>
-          <p class="mt-2 text-sm text-slate-300">
-            Presentación pro para propuestas, contratos, documentos y kits.
-          </p>
-          <div class="mt-5">
-            <a href="#planes" class="inline-flex items-center gap-2 text-sm font-bold text-[color:var(--brand3)] hover:text-white transition">
-              Ver paquetes <span>→</span>
-            </a>
-          </div>
-        </article>
-
-        <article class="lg:col-span-4 rounded-3xl ring-soft bg-[#07081b]/70 backdrop-blur p-6 item" data-cat="adhesivos">
-          <div class="text-xs text-slate-300">Formatos</div>
-          <h3 class="mt-2 text-xl font-extrabold">Brochure & Trípticos</h3>
-          <p class="mt-2 text-sm text-slate-300">
-            Para explicar tu servicio con claridad: secciones, precios, beneficios.
-          </p>
-          <div class="mt-5">
-            <a href="#contacto" class="inline-flex items-center gap-2 text-sm font-bold text-[color:var(--brand3)] hover:text-white transition">
-              Cotizar ahora <span>→</span>
-            </a>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIO -->
-  <section class="py-12 sm:py-14 md:py-20 border-y border-white/10 bg-black/20">
-    <div class="mx-auto max-w-7xl px-3 sm:px-4">
-      <div class="grid lg:grid-cols-12 gap-10 items-center">
-        <div class="lg:col-span-7">
-          <div class="text-xs text-slate-300">Testimonio</div>
-          <h2 class="mt-3 text-3xl md:text-5xl font-black leading-[0.95]">
-            “MEJORÓ LA
-            <span class="text-[color:var(--brand3)]">PRESENTACIÓN</span>
-            DE MI NEGOCIO Y
-            EMPECÉ A
-            <span class="text-white">VENDER MÁS</span>.”
-          </h2>
-          <p class="mt-4 text-slate-300 max-w-2xl text-sm sm:text-base">
-            Reemplaza este texto por tu caso real. Esta sección funciona perfecto para generar confianza
-            (calidad de impresión, tiempos, atención, etc.).
-          </p>
-          <div class="mt-6 flex items-center gap-3">
-            <div class="h-11 w-11 rounded-2xl bg-white/5 ring-soft"></div>
-            <div>
-              <div class="font-bold">Cliente / Marca</div>
-              <div class="text-xs text-slate-300">Rubro • Ciudad</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="lg:col-span-5">
-          <div class="rounded-3xl overflow-hidden ring-soft bg-white/5">
-            <img src="src/img/1.jpg" alt="Foto cliente" class="w-full h-[260px] sm:h-[360px] object-cover"/>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PLANES -->
-  <section id="planes" class="py-12 sm:py-14 md:py-20">
-    <div class="mx-auto max-w-7xl px-3 sm:px-4">
-      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-        <div>
-          <h2 class="text-3xl md:text-5xl font-black">ELIGE UN PLAN</h2>
-          <p class="mt-2 text-slate-300 max-w-2xl text-sm sm:text-base">
-            Paquetes editables (pon tus precios reales y lo que incluye cada uno).
-          </p>
-        </div>
-        <div class="hidden md:flex items-center gap-2 text-xs text-slate-300">
-          <span class="h-2 w-2 rounded-full bg-[color:var(--brand2)]"></span>
-          <span>Descuentos por volumen</span>
-        </div>
-      </div>
-
-      <div class="mt-10 grid lg:grid-cols-12 gap-6">
-        <div class="lg:col-span-6 rounded-3xl ring-soft bg-white/5 p-6 relative overflow-hidden">
-          <div class="absolute -top-16 -right-16 h-48 w-48 rounded-full bg-white/5 blur-2xl"></div>
-
-          <div class="flex items-start justify-between gap-4">
-            <div>
-              <div class="text-xs text-slate-300">Plan básico</div>
-              <div class="mt-2 text-2xl font-extrabold">Kit Emprendedor</div>
-              <div class="mt-1 text-sm text-slate-300">Ideal para empezar a vender</div>
-            </div>
-            <div class="text-right">
-              <div class="text-xs text-slate-300">desde</div>
-              <div class="text-4xl font-black text-white">S/ 99</div>
-            </div>
-          </div>
-
-          <ul class="mt-6 grid gap-2 text-sm text-slate-200/90">
-            <li class="flex gap-2"><span class="text-[color:var(--brand3)]">✔</span> Tarjetas personales</li>
-            <li class="flex gap-2"><span class="text-[color:var(--brand3)]">✔</span> Volantes promocionales</li>
-            <li class="flex gap-2"><span class="text-[color:var(--brand3)]">✔</span> Stickers para empaque</li>
-            <li class="flex gap-2"><span class="text-[color:var(--brand3)]">✔</span> Revisión de archivo</li>
-          </ul>
-
-          <a href="#contacto"
-             class="mt-7 inline-flex w-full items-center justify-center rounded-2xl px-5 py-3 font-bold transition
-                    bg-[color:var(--brand)] hover:bg-[color:var(--brand2)]">
-            Quiero este plan
-          </a>
-          <div class="mt-2 text-xs text-slate-400">* Cambia “S/” por tu moneda si deseas.</div>
-        </div>
-
-        <div class="lg:col-span-6 rounded-3xl ring-soft bg-[#07081b]/70 backdrop-blur p-6 relative overflow-hidden">
-          <div class="absolute -bottom-20 -left-20 h-56 w-56 rounded-full bg-white/5 blur-2xl"></div>
-
-          <div class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs bg-white/5 ring-soft">
-            <span class="h-2 w-2 rounded-full bg-[color:var(--brand3)]"></span>
-            <span>Más vendido</span>
-          </div>
-
-          <div class="mt-4 flex items-start justify-between gap-4">
-            <div>
-              <div class="text-xs text-slate-300">Plan pro</div>
-              <div class="mt-2 text-2xl font-extrabold">Kit Marca Completa</div>
-              <div class="mt-1 text-sm text-slate-300">Para campañas y presencia fuerte</div>
-            </div>
-            <div class="text-right">
-              <div class="text-xs text-slate-300">desde</div>
-              <div class="text-4xl font-black text-white">S/ 199</div>
-            </div>
-          </div>
-
-          <ul class="mt-6 grid gap-2 text-sm text-slate-200/90">
-            <li class="flex gap-2"><span class="text-[color:var(--brand3)]">✔</span> Todo del Kit Emprendedor</li>
-            <li class="flex gap-2"><span class="text-[color:var(--brand3)]">✔</span> Vinil / etiquetas (según medida)</li>
-            <li class="flex gap-2"><span class="text-[color:var(--brand3)]">✔</span> Brochure o tríptico</li>
-            <li class="flex gap-2"><span class="text-[color:var(--brand3)]">✔</span> Ajustes de diseño (opcional)</li>
-          </ul>
-
-          <a href="#contacto"
-             class="mt-7 inline-flex w-full items-center justify-center rounded-2xl px-5 py-3 font-bold
-                    bg-white/5 hover:bg-white/10 ring-soft transition">
-            Cotizar este plan
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a
+            href="#inicio"
+            class="inline-flex items-center justify-center px-5 py-3 rounded-2xl bg-white/10 hover:bg-white/15 ring-soft font-semibold transition"
+          >
+            Volver arriba ↑
           </a>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- CONTACTO -->
-  <section id="contacto" class="py-12 sm:py-14 md:py-20 border-t border-white/10 bg-black/25">
-    <div class="mx-auto max-w-7xl px-3 sm:px-4">
-      <div class="grid lg:grid-cols-12 gap-10 items-start">
-        <div class="lg:col-span-6">
-          <h2 class="text-3xl md:text-5xl font-black leading-[0.95]">
-            ¿TIENES
-            <span class="text-[color:var(--brand3)]">PREGUNTAS</span>?
-            <span class="text-white">HABLEMOS</span>
-          </h2>
-          <p class="mt-4 text-slate-300 max-w-xl text-sm sm:text-base">
-            Déjame tu pedido (producto, cantidad, tamaño, acabado y fecha). Respondo rápido.
-          </p>
-
-          <form class="mt-8 grid gap-3" onsubmit="return handleSubmit(event)">
-            <div class="grid sm:grid-cols-2 gap-3">
-              <label class="grid gap-1 text-sm">
-                <span class="text-slate-300">Nombre</span>
-                <input class="rounded-2xl px-4 py-3 bg-white/5 ring-soft outline-none focus:ring-2 focus:ring-[color:var(--brand2)]"
-                       type="text" name="name" placeholder="Tu nombre" required />
-              </label>
-
-              <label class="grid gap-1 text-sm">
-                <span class="text-slate-300">WhatsApp</span>
-                <input class="rounded-2xl px-4 py-3 bg-white/5 ring-soft outline-none focus:ring-2 focus:ring-[color:var(--brand2)]"
-                       type="tel" name="phone" placeholder="+51 ..." required />
-              </label>
-            </div>
-
-            <label class="grid gap-1 text-sm">
-              <span class="text-slate-300">Producto</span>
-              <input class="rounded-2xl px-4 py-3 bg-white/5 ring-soft outline-none focus:ring-2 focus:ring-[color:var(--brand2)]"
-                     type="text" name="product" placeholder="Ej: 1000 volantes A5, 300g mate" />
-            </label>
-
-            <label class="grid gap-1 text-sm">
-              <span class="text-slate-300">Detalle</span>
-              <textarea class="min-h-[120px] rounded-2xl px-4 py-3 bg-white/5 ring-soft outline-none focus:ring-2 focus:ring-[color:var(--brand2)]"
-                        name="message"
-                        placeholder="Tamaño, cantidad, acabados, fecha, si ya tienes diseño o necesitas diseño..."></textarea>
-            </label>
-
-            <button class="mt-2 inline-flex items-center justify-center gap-2 rounded-2xl px-5 py-3 font-bold transition
-                           bg-[color:var(--brand)] hover:bg-[color:var(--brand2)]">
-              Enviar solicitud
-              <span aria-hidden="true">→</span>
-            </button>
-
-            <p id="formMsg" class="text-sm text-slate-300 hidden"></p>
-          </form>
-        </div>
-
-        <div class="lg:col-span-6">
-          <div class="rounded-3xl overflow-hidden ring-soft bg-white/5">
-            <img src="src/img/2.jpg" alt="Foto contacto" class="w-full h-[300px] sm:h-[520px] object-cover"/>
-          </div>
-
-          <div class="mt-4 grid sm:grid-cols-3 gap-3 text-xs text-slate-300">
-            <div class="rounded-2xl p-4 bg-white/5 ring-soft">
-              <div class="font-bold text-white">Formato</div>
-              <div class="mt-1">PDF/AI/PSD</div>
-            </div>
-            <div class="rounded-2xl p-4 bg-white/5 ring-soft">
-              <div class="font-bold text-white">Sangrado</div>
-              <div class="mt-1">3mm recomendado</div>
-            </div>
-            <div class="rounded-2xl p-4 bg-white/5 ring-soft">
-              <div class="font-bold text-white">Color</div>
-              <div class="mt-1">CMYK para impresión</div>
-            </div>
-          </div>
-        </div>
+      <div class="mt-6 text-center text-xs text-slate-500">
+        © <span id="year"></span> Ágora Comunicadores. Todos los derechos reservados.
       </div>
-
-      <!-- Footer -->
-      <div class="mt-14 border-t border-white/10 pt-10">
-        <div class="grid md:grid-cols-12 gap-8 items-center">
-          <div class="md:col-span-7">
-            <div class="font-extrabold text-xl">MANTENTE AL DÍA</div>
-            <p class="mt-2 text-slate-300 text-sm max-w-xl">
-              Promos, packs y novedades de impresión. (También puede ser CTA a tu Linktree).
-            </p>
-          </div>
-          <div class="md:col-span-5">
-            <div class="flex flex-col sm:flex-row gap-2">
-              <input class="flex-1 rounded-2xl px-4 py-3 bg-white/5 ring-soft outline-none focus:ring-2 focus:ring-[color:var(--brand2)]"
-                     type="email" placeholder="Tu correo" />
-              <button class="rounded-2xl px-5 py-3 font-bold transition bg-[color:var(--brand)] hover:bg-[color:var(--brand2)]">
-                Suscribirme
-              </button>
-            </div>
-            <div class="mt-2 text-xs text-slate-400">* Puedes reemplazar esto por un botón a WhatsApp.</div>
-          </div>
-        </div>
-
-        <div class="mt-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs text-slate-400">
-          <div>© <span id="year"></span> Agora Impresiones. Todos los derechos reservados.</div>
-          <div class="flex flex-wrap gap-4">
-            <a class="hover:text-white" href="#servicios">Servicios</a>
-            <a class="hover:text-white" href="#productos">Productos</a>
-            <a class="hover:text-white" href="#planes">Planes</a>
-          </div>
-        </div>
-      </div>
-
     </div>
-  </section>
+  </footer>
 
   <script>
-    const btnMenu = document.getElementById('btnMenu');
-    const mobileMenu = document.getElementById('mobileMenu');
-    btnMenu?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    const PHONE_E164 = "51999999999";
 
-    // auto-close al hacer click en un link del menú móvil
-    document.querySelectorAll('#mobileMenu a').forEach(a => {
-      a.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    const qs = (id) => document.getElementById(id);
+
+    const buildMessage = () => {
+      const name = (qs("name")?.value || "").trim();
+      const phone = (qs("phone")?.value || "").trim();
+      const product = (qs("product")?.value || "").trim();
+      const qty = (qs("qty")?.value || "").trim();
+      const details = (qs("details")?.value || "").trim();
+
+      const lines = [
+        "Hola, Ágora Comunicadores. Quiero una cotización:",
+        name ? `Nombre: ${name}` : "",
+        phone ? `WhatsApp: ${phone}` : "",
+        product ? `Producto: ${product}` : "",
+        qty ? `Cantidad / medidas: ${qty}` : "",
+        details ? `Detalles: ${details}` : "",
+        "",
+        "Gracias.",
+      ].filter(Boolean);
+
+      return lines.join("\n");
+    };
+
+    const waLink = (text) => `https://wa.me/${PHONE_E164}?text=${encodeURIComponent(text)}`;
+
+    const wireCTA = (id, sourceLabel) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const url = waLink(`Hola, Ágora Comunicadores. Quiero cotizar (${sourceLabel}).`);
+      el.setAttribute("href", url);
+    };
+
+    ["ctaTop", "ctaHero", "ctaDirect"].forEach((id) => {
+      wireCTA(id, id.replace("cta", ""));
     });
 
-    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-    const chips = document.querySelectorAll('.chip');
-    const items = document.querySelectorAll('.item');
-
-    chips.forEach(chip => {
-      chip.addEventListener('click', () => {
-        chips.forEach(c => c.classList.remove('bg-white/10'));
-        chip.classList.add('bg-white/10');
-
-        const filter = chip.getAttribute('data-filter');
-        items.forEach(el => {
-          const cat = el.getAttribute('data-cat');
-          el.style.display = (filter === 'all' || cat === filter) ? '' : 'none';
-        });
+    const form = document.getElementById("leadForm");
+    if (form) {
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const msg = buildMessage();
+        window.open(waLink(msg), "_blank", "noopener");
       });
-    });
-
-    function handleSubmit(e){
-      e.preventDefault();
-      const msg = document.getElementById('formMsg');
-      msg.classList.remove('hidden');
-      msg.textContent = "Listo. Aquí normalmente conectarías WhatsApp, correo o tu backend (Laravel).";
-      return false;
     }
   </script>
-
 </body>
 </html>
