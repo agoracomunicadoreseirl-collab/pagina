@@ -512,75 +512,170 @@
           </a>
         </div>
 
-        <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div class="rounded-3xl bg-white/5 ring-soft p-5">
-            <div class="text-sm font-extrabold text-white">Cartas y menús</div>
-            <div class="mt-2 text-sm text-slate-300">
-              Plastificado, tríptico, encuadernado y opciones premium.
-            </div>
-            <div class="mt-4 flex flex-wrap gap-2 text-xs text-slate-300">
-              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Salón</span>
-              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Delivery</span>
-              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Resistente</span>
-            </div>
-          </div>
+        <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  <!-- CARD 1 -->
+  <a href="#contacto" class="group relative rounded-3xl overflow-visible">
+    <!-- Fondo (sin “recuadro encerrado” visual: es imagen a full, borde suave opcional) -->
+    <div class="absolute inset-0 rounded-3xl overflow-hidden ring-soft-2">
+      <img
+        src="src/img/1.jpg"
+        alt="Cartas y menús"
+        class="h-full w-full object-cover transform-gpu transition duration-500 ease-out group-hover:scale-[1.06]"
+        loading="lazy"
+      />
+      <!-- overlay para que el texto se lea -->
+      <div class="absolute inset-0 bg-gradient-to-t from-[#050615]/95 via-[#050615]/35 to-transparent"></div>
+    </div>
 
-          <div class="rounded-3xl bg-white/5 ring-soft p-5">
-            <div class="text-sm font-extrabold text-white">Stickers y etiquetas</div>
-            <div class="mt-2 text-sm text-slate-300">Para envases, bolsas, vasos y sellado de delivery.</div>
-            <div class="mt-4 flex flex-wrap gap-2 text-xs text-slate-300">
-              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Kraft</span>
-              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Vinil</span>
-              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Transparente</span>
-            </div>
-          </div>
+    <!-- Imágenes flotantes -->
+    <img
+      src="src/img/2.jpg"
+      alt=""
+      class="pointer-events-none absolute -top-6 right-5 w-20 h-20 rounded-2xl object-cover shadow-2xl ring-soft
+             transform-gpu transition duration-500 group-hover:-translate-y-2 group-hover:rotate-1 floaty"
+      style="animation-delay:-1.5s"
+      loading="lazy"
+    />
+    <img
+      src="src/img/3.jpg"
+      alt=""
+      class="pointer-events-none absolute -bottom-7 left-5 w-24 h-16 rounded-2xl object-cover shadow-2xl ring-soft
+             transform-gpu transition duration-500 group-hover:translate-y-1 group-hover:-rotate-1 floaty"
+      style="animation-delay:-3s"
+      loading="lazy"
+    />
 
-          <div class="rounded-3xl bg-white/5 ring-soft p-5">
-            <div class="text-sm font-extrabold text-white">Viniles y señalética</div>
-            <div class="mt-2 text-sm text-slate-300">
-              Vitrinas, paredes, cajas de luz, QR y señalética interna.
-            </div>
-            <div class="mt-4 flex flex-wrap gap-2 text-xs text-slate-300">
-              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">QR</span>
-              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Promociones</span>
-              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Orientación</span>
-            </div>
-          </div>
+    <!-- Contenido encima -->
+    <div class="relative p-6 min-h-[260px] flex flex-col justify-end">
+      <div class="text-sm font-extrabold text-white">Cartas y menús</div>
+      <div class="mt-2 text-sm text-slate-200/90">
+        Plastificado, tríptico, encuadernado y opciones premium.
+      </div>
 
-          <div class="rounded-3xl bg-white/5 ring-soft p-5">
-            <div class="text-sm font-extrabold text-white">Empaques y bolsas</div>
-            <div class="mt-2 text-sm text-slate-300">
-              Cajas, bolsas, papel antigrasa y presentaciones impecables.
-            </div>
-            <div class="mt-4 flex flex-wrap gap-2 text-xs text-slate-300">
-              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Delivery</span>
-              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Marca</span>
-              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Calidad</span>
-            </div>
-          </div>
+      <div class="mt-4 flex flex-wrap gap-2 text-xs text-slate-200/90">
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-soft">Salón</span>
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-soft">Delivery</span>
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-soft">Resistente</span>
+      </div>
+    </div>
+  </a>
 
-          <div class="rounded-3xl bg-white/5 ring-soft p-5">
-            <div class="text-sm font-extrabold text-white">Promocionales</div>
-            <div class="mt-2 text-sm text-slate-300">
-              Volantes, flyers, displays de mesa, afiches y banners.
-            </div>
-            <div class="mt-4 flex flex-wrap gap-2 text-xs text-slate-300">
-              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Ofertas</span>
-              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Eventos</span>
-              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Impulso</span>
-            </div>
-          </div>
+  <!-- CARD 2 -->
+  <a href="#contacto" class="group relative rounded-3xl overflow-visible">
+    <div class="absolute inset-0 rounded-3xl overflow-hidden ring-soft-2">
+      <img src="src/img/2.jpg" alt="Stickers y etiquetas"
+        class="h-full w-full object-cover transform-gpu transition duration-500 ease-out group-hover:scale-[1.06]" loading="lazy" />
+      <div class="absolute inset-0 bg-gradient-to-t from-[#050615]/95 via-[#050615]/35 to-transparent"></div>
+    </div>
 
-          <div class="rounded-3xl bg-white/5 ring-soft p-5">
-            <div class="text-sm font-extrabold text-white">Papelería de marca</div>
-            <div class="mt-2 text-sm text-slate-300">Tarjetas, sellos, códigos QR y piezas para reforzar tu identidad.</div>
-            <div class="mt-4 flex flex-wrap gap-2 text-xs text-slate-300">
-              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Marca</span>
-              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Confianza</span>
-              <span class="px-3 py-1 rounded-full bg-white/5 ring-soft">Coherencia</span>
-            </div>
-          </div>
-        </div>
+    <img src="src/img/1.jpg" alt=""
+      class="pointer-events-none absolute -top-6 left-5 w-20 h-20 rounded-2xl object-cover shadow-2xl ring-soft
+             transform-gpu transition duration-500 group-hover:-translate-y-2 group-hover:-rotate-1 floaty"
+      style="animation-delay:-2.2s" loading="lazy" />
+
+    <div class="relative p-6 min-h-[260px] flex flex-col justify-end">
+      <div class="text-sm font-extrabold text-white">Stickers y etiquetas</div>
+      <div class="mt-2 text-sm text-slate-200/90">Para envases, bolsas, vasos y sellado de delivery.</div>
+
+      <div class="mt-4 flex flex-wrap gap-2 text-xs text-slate-200/90">
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-soft">Kraft</span>
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-soft">Vinil</span>
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-soft">Transparente</span>
+      </div>
+    </div>
+  </a>
+
+  <!-- CARD 3 -->
+  <a href="#contacto" class="group relative rounded-3xl overflow-visible">
+    <div class="absolute inset-0 rounded-3xl overflow-hidden ring-soft-2">
+      <img src="src/img/3.jpg" alt="Viniles y señalética"
+        class="h-full w-full object-cover transform-gpu transition duration-500 ease-out group-hover:scale-[1.06]" loading="lazy" />
+      <div class="absolute inset-0 bg-gradient-to-t from-[#050615]/95 via-[#050615]/35 to-transparent"></div>
+    </div>
+
+    <img src="src/img/4.jpg" alt=""
+      class="pointer-events-none absolute -bottom-7 right-5 w-24 h-16 rounded-2xl object-cover shadow-2xl ring-soft
+             transform-gpu transition duration-500 group-hover:translate-y-1 group-hover:rotate-1 floaty"
+      style="animation-delay:-1.2s" loading="lazy" />
+
+    <div class="relative p-6 min-h-[260px] flex flex-col justify-end">
+      <div class="text-sm font-extrabold text-white">Viniles y señalética</div>
+      <div class="mt-2 text-sm text-slate-200/90">Vitrinas, paredes, QR y señalética interna.</div>
+
+      <div class="mt-4 flex flex-wrap gap-2 text-xs text-slate-200/90">
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-soft">QR</span>
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-soft">Promociones</span>
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-soft">Orientación</span>
+      </div>
+    </div>
+  </a>
+
+  <!-- CARD 4 -->
+  <a href="#contacto" class="group relative rounded-3xl overflow-visible">
+    <div class="absolute inset-0 rounded-3xl overflow-hidden ring-soft-2">
+      <img src="src/img/5.jpg" alt="Empaques y bolsas"
+        class="h-full w-full object-cover transform-gpu transition duration-500 ease-out group-hover:scale-[1.06]" loading="lazy" />
+      <div class="absolute inset-0 bg-gradient-to-t from-[#050615]/95 via-[#050615]/35 to-transparent"></div>
+    </div>
+
+    <img src="src/img/2.jpg" alt=""
+      class="pointer-events-none absolute -top-6 right-5 w-20 h-20 rounded-2xl object-cover shadow-2xl ring-soft
+             transform-gpu transition duration-500 group-hover:-translate-y-2 group-hover:rotate-1 floaty"
+      style="animation-delay:-3.2s" loading="lazy" />
+
+    <div class="relative p-6 min-h-[260px] flex flex-col justify-end">
+      <div class="text-sm font-extrabold text-white">Empaques y bolsas</div>
+      <div class="mt-2 text-sm text-slate-200/90">Cajas, bolsas, papel antigrasa y presentaciones impecables.</div>
+
+      <div class="mt-4 flex flex-wrap gap-2 text-xs text-slate-200/90">
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-soft">Delivery</span>
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-soft">Marca</span>
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-soft">Calidad</span>
+      </div>
+    </div>
+  </a>
+
+  <!-- CARD 5 -->
+  <a href="#contacto" class="group relative rounded-3xl overflow-visible">
+    <div class="absolute inset-0 rounded-3xl overflow-hidden ring-soft-2">
+      <img src="src/img/1.jpg" alt="Promocionales"
+        class="h-full w-full object-cover transform-gpu transition duration-500 ease-out group-hover:scale-[1.06]" loading="lazy" />
+      <div class="absolute inset-0 bg-gradient-to-t from-[#050615]/95 via-[#050615]/35 to-transparent"></div>
+    </div>
+
+    <div class="relative p-6 min-h-[260px] flex flex-col justify-end">
+      <div class="text-sm font-extrabold text-white">Promocionales</div>
+      <div class="mt-2 text-sm text-slate-200/90">Volantes, flyers, displays de mesa, afiches y banners.</div>
+
+      <div class="mt-4 flex flex-wrap gap-2 text-xs text-slate-200/90">
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-soft">Ofertas</span>
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-soft">Eventos</span>
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-soft">Impulso</span>
+      </div>
+    </div>
+  </a>
+
+  <!-- CARD 6 -->
+  <a href="#contacto" class="group relative rounded-3xl overflow-visible">
+    <div class="absolute inset-0 rounded-3xl overflow-hidden ring-soft-2">
+      <img src="src/img/2.jpg" alt="Papelería de marca"
+        class="h-full w-full object-cover transform-gpu transition duration-500 ease-out group-hover:scale-[1.06]" loading="lazy" />
+      <div class="absolute inset-0 bg-gradient-to-t from-[#050615]/95 via-[#050615]/35 to-transparent"></div>
+    </div>
+
+    <div class="relative p-6 min-h-[260px] flex flex-col justify-end">
+      <div class="text-sm font-extrabold text-white">Papelería de marca</div>
+      <div class="mt-2 text-sm text-slate-200/90">Tarjetas, sellos, QR y piezas para reforzar tu identidad.</div>
+
+      <div class="mt-4 flex flex-wrap gap-2 text-xs text-slate-200/90">
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-soft">Marca</span>
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-soft">Confianza</span>
+        <span class="px-3 py-1 rounded-full bg-white/10 ring-soft">Coherencia</span>
+      </div>
+    </div>
+  </a>
+</div>
+
       </div>
     </section>
 
