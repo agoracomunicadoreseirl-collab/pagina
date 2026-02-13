@@ -231,6 +231,41 @@
               de tu <span class="text-white">restaurante</span> y convierte en <span class="text-white">ventas</span>
             </h1>
 
+            <!-- ✅ IMAGEN DE HERO SOLO MÓVIL (debajo del título) -->
+            <div class="mt-6 lg:hidden relative overflow-visible pb-16">
+              <div class="absolute -top-10 -right-10 h-44 w-44 rounded-full bg-[color:var(--brand2)]/25 blur-3xl"></div>
+              <div class="absolute -bottom-10 -left-10 h-44 w-44 rounded-full bg-[color:var(--brand)]/20 blur-3xl"></div>
+
+              <div class="relative overflow-visible group">
+                <img
+                  src="src/img/branding.png"
+                  alt="Impresión para restaurantes"
+                  class="w-full h-auto object-contain bg-transparent block
+                        transform-gpu transition-transform duration-500 ease-out"
+                  loading="eager"
+                />
+              </div>
+
+              <!-- ✅ En móvil recomiendo ocultar estas tarjetas para que NO tapen el texto -->
+              <div class="hidden sm:block absolute -bottom-6 -left-2 sm:-left-6 bg-[#07081b]/90 backdrop-blur rounded-2xl ring-soft p-4 w-[260px] floaty">
+                <div class="font-bold">Arma tu kit</div>
+                <div class="text-xs text-slate-300 mt-1">marca + promoción + empaque</div>
+                <div class="mt-2 text-xs text-slate-300">Menú + Stickers + Vinil + Volantes</div>
+                <a href="#packs" class="mt-3 inline-flex items-center gap-2 text-xs font-bold text-white hover:text-white/90">
+                  Ver packs <span aria-hidden="true">→</span>
+                </a>
+              </div>
+
+              <div class="hidden sm:block absolute top-6 -right-2 sm:-right-4 bg-[#07081b]/90 backdrop-blur rounded-2xl ring-soft p-3 w-[190px]">
+                <div class="text-xs text-slate-300">WhatsApp</div>
+                <div class="mt-1 flex items-center gap-2">
+                  <span class="h-2 w-2 bg-emerald-400 rounded-full"></span>
+                  <span class="font-bold text-sm">En línea</span>
+                </div>
+                <div class="mt-1 text-[11px] text-slate-300">Envíanos medidas y cantidad</div>
+              </div>
+            </div>
+
             <p class="mt-5 text-slate-300 max-w-2xl text-base md:text-lg leading-relaxed">
               Cartas, menús, viniles, stickers, empaques y material promocional para restaurantes.
               Diseñamos, imprimimos y entregamos listo para usar, con una estética coherente y clara.
@@ -293,7 +328,7 @@
             </div>
           </div>
 
-          <div class="lg:col-span-5 relative order-2 lg:order-2 mt-6 lg:mt-0">
+          <div class="hidden lg:block lg:col-span-5 relative mt-0">
             <div class="absolute -top-10 -right-10 h-44 w-44 rounded-full bg-[color:var(--brand2)]/25 blur-3xl"></div>
             <div class="absolute -bottom-10 -left-10 h-44 w-44 rounded-full bg-[color:var(--brand)]/20 blur-3xl"></div>
 
