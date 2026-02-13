@@ -91,6 +91,12 @@
       50% { transform: translateY(-10px); }
     }
 
+    @keyframes heroSway {
+      0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+      50%      { transform: translateY(-8px) rotate(0.6deg) scale(1.02); }
+    }
+
+
     input,
     textarea {
       outline: none;
@@ -140,7 +146,9 @@
     /* ✅ NO apagamos el marquee, solo quitamos floaty si el user lo pide */
     @media (prefers-reduced-motion: reduce) {
       .floaty { animation: none; }
+      .motion-safe\:animate-\[heroSway_9s_ease-in-out_infinite\] { animation: none !important; }
     }
+
   </style>
 </head>
 
@@ -232,7 +240,7 @@
             </h1>
 
             <!-- ✅ IMAGEN DE HERO SOLO MÓVIL (debajo del título) -->
-            <div class="mt-6 lg:hidden relative overflow-visible pb-16">
+            <div class="mt-6 lg:hidden relative overflow-visible pb-28">
               <div class="absolute -top-10 -right-10 h-44 w-44 rounded-full bg-[color:var(--brand2)]/25 blur-3xl"></div>
               <div class="absolute -bottom-10 -left-10 h-44 w-44 rounded-full bg-[color:var(--brand)]/20 blur-3xl"></div>
 
@@ -240,14 +248,17 @@
                 <img
                   src="src/img/branding.png"
                   alt="Impresión para restaurantes"
-                  class="w-full h-auto object-contain bg-transparent block
-                        transform-gpu transition-transform duration-500 ease-out"
+                  class="w-full h-auto object-contain bg-transparent block transform-gpu
+                        transition-transform duration-500 ease-out
+                        motion-safe:animate-[heroSway_9s_ease-in-out_infinite]"
                   loading="eager"
                 />
               </div>
 
               <!-- ✅ En móvil recomiendo ocultar estas tarjetas para que NO tapen el texto -->
-              <div class="hidden sm:block absolute -bottom-6 -left-2 sm:-left-6 bg-[#07081b]/90 backdrop-blur rounded-2xl ring-soft p-4 w-[260px] floaty">
+              <div class="absolute bottom-3 left-3 right-3 sm:-bottom-6 sm:-left-6 sm:right-auto sm:w-[260px]
+            bg-[#07081b]/90 backdrop-blur rounded-2xl ring-soft p-4 floaty">
+
                 <div class="font-bold">Arma tu kit</div>
                 <div class="text-xs text-slate-300 mt-1">marca + promoción + empaque</div>
                 <div class="mt-2 text-xs text-slate-300">Menú + Stickers + Vinil + Volantes</div>
@@ -256,7 +267,8 @@
                 </a>
               </div>
 
-              <div class="hidden sm:block absolute top-6 -right-2 sm:-right-4 bg-[#07081b]/90 backdrop-blur rounded-2xl ring-soft p-3 w-[190px]">
+              <div class="absolute top-3 right-3 w-[170px] sm:top-6 sm:-right-4 sm:w-[190px]
+            bg-[#07081b]/90 backdrop-blur rounded-2xl ring-soft p-3">
                 <div class="text-xs text-slate-300">WhatsApp</div>
                 <div class="mt-1 flex items-center gap-2">
                   <span class="h-2 w-2 bg-emerald-400 rounded-full"></span>
